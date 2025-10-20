@@ -7,7 +7,7 @@ public class Tema2Ejercicio29 {
     public static void main(String[] args) {
 
         Random random = new Random();
-        int Secreto = random.nextInt(100);
+        int secreto = random.nextInt(100);
         Scanner in = new Scanner(System.in);
 
         System.out.println("Intenta adivinar el número del 1 al 100");
@@ -16,11 +16,11 @@ public class Tema2Ejercicio29 {
 
         while (bucle > 0) {
             num = in.nextInt();
-            if (num > Secreto) {
+            if (num > secreto) {
                 System.out.println("El número es más pequeño que el tuyo");
-            } else if (num < Secreto) {
+            } else if (num < secreto) {
                 System.out.println("El número es más grande que el tuyo");
-            } else if (num == Secreto) {
+            } else if (num == secreto) {
                 System.out.println("¡Has acertado!");
                 bucle = 0;
             }

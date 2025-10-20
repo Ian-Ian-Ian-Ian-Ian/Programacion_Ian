@@ -13,16 +13,17 @@ public class Tema2Ejercicio26 {
         int resto = 0;
         int total = 0;
 
-        while (divisor > 0) {
-            resto = num%divisor ;
-            divisor--;
+
+        for (divisor = num; divisor > 0; divisor--) {
+            resto = num % divisor;
             if (resto == 0) {
                 total++;
             }
         }
-        boolean primo = total == 2;
 
-        if (primo == true) {
+        boolean primo = total <= 2;
+
+        if (primo) {
             System.out.println("El número es primo");
         } else {
             System.out.println("El número NO es primo");

@@ -3,8 +3,6 @@ package Tema2;
 public class Tema2Ejercicio31 {
     public static void main(String[] args) {
 
-        //Falta este por acabar
-
         int num = 1;
         int divisor = num;
         int resto = 0;
@@ -17,6 +15,9 @@ public class Tema2Ejercicio31 {
             totalR = 0;
             while (divisor > 0) {
                 resto = num%divisor ;
+                if (divisor == num){
+                    divisor = (num / 2) + 1;
+                }
                 divisor--;
                 if (resto == 0) {
                     totalR++;

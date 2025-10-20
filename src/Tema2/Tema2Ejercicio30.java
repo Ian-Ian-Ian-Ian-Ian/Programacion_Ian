@@ -11,7 +11,7 @@ public class Tema2Ejercicio30 {
         boolean continuar = true;
         int total = 0;
 
-        while (continuar == true) {
+        while (continuar) {
 
             System.out.println("Dame un número");
             int num1 = in.nextInt();
