@@ -7,11 +7,14 @@ public class Combate {
     public static void main(String[] args) {
 
         Scanner in = new Scanner(System.in);
+        System.out.println("");
         System.out.println("Las normas son: Un total máximo de 500 puntos en atributos y no más de 200 puntos por atributo");
 
         // Jugador 1 ---------------------------------------------------------------------------------------------------
 
+        System.out.println("");
         System.out.println("Procede a darle los atributos a Jugador 1");
+        System.out.println("");
         int atributos = 500;
         String ok = "no ok";
 
@@ -118,6 +121,7 @@ public class Combate {
         // Jugador 2 ---------------------------------------------------------------------------------------------------
 
         System.out.println("Ahora procede a darle los atributos a Jugador 2");
+        System.out.println("");
         atributos = 500;
         ok = "no ok";
 
@@ -232,35 +236,85 @@ public class Combate {
         int dano = 0;
         int critico = 0;
         int ronda = 1;
+        int repeticion = 0;
+        int accion = 0;
+        String vida1 = "" ;
+        String vida2 = "" ;
+
         String partida = "En proceso";
 
         if (velocidad1 > velocidad2) {
+            System.out.println("¡Empieza Jugador 1!");
             while (partida == "En proceso") {
+
+                repeticion = hp1;
+                vida1 = "";
+                while (repeticion > 0) {
+                    vida1 = vida1 + "-";
+                    repeticion = repeticion - 5;
+                }
+
+                repeticion = hp2;
+                vida2 = "";
+                while (repeticion > 0) {
+                    vida2 = vida2 + "-";
+                    repeticion = repeticion - 5;
+                }
 
                 System.out.println("**************************************************"); // Hay 50 *
                 System.out.println("RONDA " + ronda);
-                System.out.println("Jugador 1: " + hp1);
-                System.out.println("Jugador 2: " + hp2);
+                System.out.println("Jugador 1: " + hp1 + " " + vida1);
+                System.out.println("Jugador 2: " + hp2 + " " + vida2);
                 System.out.println();
 
                 //Aqui formula de ataque jugador 1
 
-                dano = ataque1 - defensa2;
-                if (dano < 0){
-                    dano = 0;
+                System.out.println("Selecciona la accion que Jugador 1 haga ( 1 [atacar] | 2 [sanar] )");
+                accion = in.nextInt();
+
+                switch (accion) {
+
+                    case 1:
+                        dano = ataque1 - defensa2;
+                        if (dano < 0) {
+                            dano = 0;
+                        }
+                        dano = dano + random.nextInt(10);
+
+                        if (dano == 0) {
+                            System.out.println("¡La accion ha fallado!");
+                        } else {
+
+                            critico = random.nextInt(100);
+                            if (critico >= 0 && critico <= 15) {
+                                dano = dano * 2;
+                                System.out.println("!¡Crítico!");
+                            }
+
+                            System.out.println("Jugador 1 hace " + dano + " puntos de daño");
+                            System.out.println();
+
+                            hp2 = hp2 - dano;
+                        }
+                        break;
+
+                    case 2:
+                        dano = random.nextInt(10);
+                        hp1 = hp1 + dano;
+
+                        if (dano == 0) {
+                            System.out.println("¡La accion ha fallado!");
+                        } else if (hp1 > 200) {
+                            System.out.println("Has alcanzado el límite de 200 de hp");
+                            hp1 = 200;
+                        } else {
+                            System.out.println("Jugador 1 se cura " + dano + " puntos de vida");
+                        }
+                        break;
+
+                    default:
+                        System.out.println("Eso no es una accion. ¡Pierdes el turno!");
                 }
-                dano = dano + random.nextInt(10);
-
-                critico = random.nextInt(100);
-                if (critico >= 0 && critico <= 15) {
-                    dano = dano * 2;
-                    System.out.println("!¡Crítico!");
-                }
-
-                System.out.println("El jugador 1 hace " + dano + " puntos de daño");
-                System.out.println();
-
-                hp2 = hp2 - dano;
                 if (hp2 <= 0) {
 
                     System.out.println("¡Jugador 1 gana!");
@@ -270,22 +324,51 @@ public class Combate {
 
                 //Aqui formula ataque jugador 2
 
-                dano = ataque2 - defensa1;
-                if (dano < 0){
-                    dano = 0;
+                System.out.println("Selecciona la accion que Jugador 2 haga ( 1 [atacar] | 2 [sanar] )");
+                accion = in.nextInt();
+
+                switch (accion) {
+
+                    case 1:
+                        dano = ataque2 - defensa1;
+                        if (dano < 0) {
+                            dano = 0;
+                        }
+                        dano = dano + random.nextInt(10);
+
+                        if (dano == 0) {
+                            System.out.println("¡La accion ha fallado!");
+                        } else {
+                            critico = random.nextInt(100);
+                            if (critico >= 0 && critico <= 15) {
+                                dano = dano * 2;
+                                System.out.println("!¡Crítico!");
+                            }
+
+                            System.out.println("Jugador 2 hace " + dano + " puntos de daño");
+                            System.out.println();
+
+                            hp1 = hp1 - dano;
+                        }
+                        break;
+
+                    case 2:
+                        dano = random.nextInt(10);
+                        hp2 = hp2 + dano;
+
+                        if (dano == 0) {
+                            System.out.println("¡La accion ha fallado!");
+                        } else if (hp2 > 200) {
+                            System.out.println("Has alcanzado el límite de 200 de hp");
+                            hp2 = 200;
+                        } else {
+                            System.out.println("Jugador 2 se cura " + dano + " puntos de vida");
+                        }
+                        break;
+
+                    default:
+                        System.out.println("Eso no es una accion. ¡Pierdes el turno!");
                 }
-                dano = dano + random.nextInt(10);
-
-                critico = random.nextInt(100);
-                if (critico >= 0 && critico <= 15) {
-                    dano = dano * 2;
-                    System.out.println("!¡Crítico!");
-                }
-
-                System.out.println("Jugador 2 hace " + dano + " puntos de daño");
-                System.out.println();
-
-                hp1 = hp1 - dano;
 
                 if (hp1 <= 0) {
 
@@ -294,41 +377,100 @@ public class Combate {
                     break;
                 }
 
-                System.out.println("Jugador 1: " + hp1);
-                System.out.println("Jugador 2: " + hp2);
+                repeticion = hp1;
+                vida1 = "";
+                while (repeticion > 0) {
+                    vida1 = vida1 + "-";
+                    repeticion = repeticion - 5;
+                }
 
-                System.out.println("Introduce cualquier tecla para continuar");
-                ok = in.next();
+                repeticion = hp2;
+                vida2 = "";
+                while (repeticion > 0) {
+                    vida2 = vida2 + "-";
+                    repeticion = repeticion - 5;
+                }
+
+                System.out.println("Jugador 1: " + hp1 + " " + vida1);
+                System.out.println("Jugador 2: " + hp2 + " " + vida2);
+
+                // aqui
+                System.out.println("");
 
                 ronda++;
             }
         } else if (velocidad2 > velocidad1) {
+            System.out.println("¡Empieza Jugador 2!");
             while (partida == "En proceso") {
+
+                repeticion = hp1;
+                vida1 = "";
+                while (repeticion > 0) {
+                    vida1 = vida1 + "-";
+                    repeticion = repeticion - 5;
+                }
+
+                repeticion = hp2;
+                vida2 = "";
+                while (repeticion > 0) {
+                    vida2 = vida2 + "-";
+                    repeticion = repeticion - 5;
+                }
 
                 System.out.println("**************************************************"); // Hay 50 *
                 System.out.println("RONDA " + ronda);
-                System.out.println("Jugador 1: " + hp1);
-                System.out.println("Jugador 2: " + hp2);
+                System.out.println("Jugador 1: " + hp1 + " " + vida1);
+                System.out.println("Jugador 2: " + hp2 + " " + vida2);
                 System.out.println();
 
                 //Aqui formula de ataque jugador 2
 
-                dano = ataque2 - defensa1;
-                if (dano < 0){
-                    dano = 0;
+                System.out.println("Selecciona la accion que Jugador 2 haga ( 1 [atacar] | 2 [sanar] )");
+                accion = in.nextInt();
+
+                switch (accion) {
+
+                    case 1:
+                        dano = ataque2 - defensa1;
+                        if (dano < 0) {
+                            dano = 0;
+                        }
+                        dano = dano + random.nextInt(10);
+
+                        if (dano == 0) {
+                            System.out.println("¡La accion ha fallado!");
+                        } else {
+                            critico = random.nextInt(100);
+                            if (critico >= 0 && critico <= 15) {
+                                dano = dano * 2;
+                                System.out.println("!¡Crítico!");
+                            }
+
+                            System.out.println("Jugador 2 hace " + dano + " puntos de daño");
+                            System.out.println();
+
+                            hp1 = hp1 - dano;
+                        }
+                        break;
+
+                    case 2:
+                        dano = random.nextInt(10);
+                        hp2 = hp2 + dano;
+
+                        if (dano == 0) {
+                            System.out.println("¡La accion ha fallado!");
+                        } else if (hp2 > 200) {
+                            System.out.println("Has alcanzado el límite de 200 de hp");
+                            hp2 = 200;
+                        } else {
+                            System.out.println("Jugador 2 se cura " + dano + " puntos de vida");
+                        }
+                        break;
+
+                    default:
+                        System.out.println("Eso no es una accion. ¡Pierdes el turno!");
                 }
-                dano = dano + random.nextInt(10);
 
-                critico = random.nextInt(100);
-                if (critico >= 0 && critico <= 15) {
-                    dano = dano * 2;
-                    System.out.println("!¡Crítico!");
-                }
-
-                System.out.println("El jugador 2 hace " + dano + " puntos de daño");
-                System.out.println();
-
-                hp1 = hp1 - dano;
                 if (hp1 <= 0) {
 
                     System.out.println("¡Jugador 2 gana!");
@@ -338,23 +480,52 @@ public class Combate {
 
                 //Aqui formula ataque jugador 1
 
-                dano = ataque1 - defensa2;
-                if (dano < 0){
-                    dano = 0;
+                System.out.println("Selecciona la accion que Jugador 1 haga ( 1 [atacar] | 2 [sanar] )");
+                accion = in.nextInt();
+
+                switch (accion) {
+
+                    case 1:
+                        dano = ataque1 - defensa2;
+                        if (dano < 0) {
+                            dano = 0;
+                        }
+                        dano = dano + random.nextInt(10);
+
+                        if (dano == 0) {
+                            System.out.println("¡La accion ha fallado!");
+                        } else {
+
+                            critico = random.nextInt(100);
+                            if (critico >= 0 && critico <= 15) {
+                                dano = dano * 2;
+                                System.out.println("!¡Crítico!");
+                            }
+
+                            System.out.println("Jugador 1 hace " + dano + " puntos de daño");
+                            System.out.println();
+
+                            hp2 = hp2 - dano;
+                        }
+                        break;
+
+                    case 2:
+                        dano = random.nextInt(10);
+                        hp1 = hp1 + dano;
+
+                        if (dano == 0) {
+                            System.out.println("¡La accion ha fallado!");
+                        } else if (hp1 > 200) {
+                            System.out.println("Has alcanzado el límite de 200 de hp");
+                            hp1 = 200;
+                        } else {
+                            System.out.println("Jugador 1 se cura " + dano + " puntos de vida");
+                        }
+                        break;
+
+                    default:
+                        System.out.println("Eso no es una accion. ¡Pierdes el turno!");
                 }
-                dano = dano + random.nextInt(10);
-
-                critico = random.nextInt(100);
-                if (critico >= 0 && critico <= 15) {
-                    dano = dano * 2;
-                    System.out.println("!¡Crítico!");
-                }
-
-                System.out.println("Jugador 1 hace " + dano + " puntos de daño");
-                System.out.println();
-
-                hp2 = hp2 - dano;
-
                 if (hp2 <= 0) {
 
                     System.out.println("¡Jugador 1 gana!");
@@ -362,15 +533,28 @@ public class Combate {
                     break;
                 }
 
-                System.out.println("Jugador 1: " + hp1);
-                System.out.println("Jugador 2: " + hp2);
+                repeticion = hp1;
+                vida1 = "";
+                while (repeticion > 0) {
+                    vida1 = vida1 + "-";
+                    repeticion = repeticion - 5;
+                }
 
-                System.out.println("Introduce cualquier tecla para continuar");
-                ok = in.next();
+                repeticion = hp2;
+                vida2 = "";
+                while (repeticion > 0) {
+                    vida2 = vida2 + "-";
+                    repeticion = repeticion - 5;
+                }
+
+                System.out.println("Jugador 1: " + hp1 + " " + vida1);
+                System.out.println("Jugador 2: " + hp2 + " " + vida2);
+
+                // aqui
+                System.out.println("");
 
                 ronda++;
             }
         }
     }
 }
-
