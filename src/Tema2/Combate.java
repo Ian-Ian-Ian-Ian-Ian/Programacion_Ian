@@ -1,6 +1,5 @@
 package Tema2;
 
-import java.beans.Customizer;
 import java.util.Scanner;
 import java.util.Random;
 
@@ -30,12 +29,16 @@ public class Combate {
         int velocidad1 = 0;
         int hp1 = 0;
         String habilidad1 = "";
+        int cooldown1 = 0;
+        String efecto1 = "";
         //Variables jugador 2
         int ataque2 = 0;
         int defensa2 = 0;
         int velocidad2 = 0;
         int hp2 = 0;
         String habilidad2 = "";
+        int cooldown2 = 0;
+        String efecto2 = "";
 
         if (customizacion == 1) {
             System.out.println("");
@@ -246,68 +249,192 @@ public class Combate {
             System.out.println();
 
         } else if (customizacion == 2) {
+            //Jugador 1 -----------------------------------------------------------------------------------------------------
+            while (ok.equals("no ok")) {
+                System.out.println("Seleccione el personaje para Jugador 1 (Escribe el nombre)");
+                System.out.println("Si desea saber más información sobre las Habilidades, escriba 'ayuda'");
+                System.out.println("Personaje:      Atleta          Alquemista      Clerigo         Druida          Veterano");
+                System.out.println("");
+                System.out.println("Ataque:         125             150             100             75              150");
+                System.out.println("Defensa:        100             125             125             125             150");
+                System.out.println("HP:             200             125             150             150             150");
+                System.out.println("Velocidad       25              100             75              150             50");
+                System.out.println("Habilidad:      Corredor        Pociones        Bendicion       Punzante        Cansancio");
+                personaje = in.next();
 
-            while (ok.equals("not ok")) {
-            System.out.println("Seleccione el personaje para Jugador 1 (Escribe el nombre)");
-            System.out.println("Si desea saber más información sobre las Habilidades, escriba 'ayuda'");
-            System.out.println("Personaje:      Atleta          Justiciero      Clerigo         Druida          Veterano");
-            System.out.println("");
-            System.out.println("Ataque:         125             150             100             75              150");
-            System.out.println("Defensa:        100             125             125             125             150");
-            System.out.println("HP:             200             125             150             150             150");
-            System.out.println("Velocidad       25              100             75              150             50");
-            System.out.println("Habilidad:      Velocista       Tablas          Bendicion       Punzante        Cansancio");
-            personaje = in.next();
+                switch (personaje) {
+                    case "Atleta":
+                        if (personaje.equals("Atleta")) {
+                            ataque1 = 125;
+                            defensa1 = 100;
+                            velocidad1 = 25;
+                            hp1 = 200;
+                            habilidad1 = "Corredor";
+                            ok = "ok";
+                        }
+                    case "Justiciero":
+                        if (personaje.equals("Alquemista")) {
+                            ataque1 = 150;
+                            defensa1 = 125;
+                            velocidad1 = 100;
+                            hp1 = 125;
+                            habilidad1 = "Pociones";
+                            ok = "ok";
+                        }
+                    case "Clerigo":
+                        if (personaje.equals("Clerigo")) {
+                            ataque1 = 100;
+                            defensa1 = 125;
+                            velocidad1 = 75;
+                            hp1 = 150;
+                            habilidad1 = "Bendicion";
+                            ok = "ok";
+                        }
+                    case "Druida":
+                        if (personaje.equals("Druida")) {
+                            ataque1 = 75;
+                            defensa1 = 125;
+                            velocidad1 = 50;
+                            hp1 = 200;
+                            habilidad1 = "Punzante";
+                            ok = "ok";
+                        }
+                    case "Veterano":
+                        if (personaje.equals("Veterano")) {
+                            ataque1 = 150;
+                            defensa1 = 150;
+                            velocidad1 = 50;
+                            hp1 = 150;
+                            habilidad1 = "Cansancio";
+                            ok = "ok";
+                        }
+                    case "ayuda":
+                        if (personaje.equals("ayuda")) {
+                            System.out.println("");
+                            System.out.println("Corredor:   Siempre comienza primero (si el enemigo no tiene la habilidad Corredor)");
+                            System.out.println("Pociones:   Desbloquea una tercera opción que permite usar pociones cada 3 turnos:");
+                            System.out.println("- Poción de daño:             Suma +10 de daño a tus próximos 2 turnos");
+                            System.out.println("- Poción de curación:         Cura +30 de hp sin que pase del máximo");
+                            System.out.println("- Poción de debilidad:        Baja un 25% el ataque rival durante 2 turnos");
+                            System.out.println("Bendicion:  El personaje esta bendecido con magia que hace que regenere un poco de vida al final de la ronda");
+                            System.out.println("Punzante:   Envuelve al personaje en una capa de espinas que hace daño a quien se atreva a atacarle");
+                            System.out.println("Cansancio:  Hace que el personaje duerma después de realizar una acción, a cambio de duplicar la efectividad de la acción");
+                            System.out.println("");
+                            System.out.println("Inserte cualquier tecla para volver a la selección de personajes");
+                            personaje = in.next();
+                            personaje = "";
+                        }
+                    default:
+                        if (personaje.equals("Atleta")||personaje.equals("Justiciero")||personaje.equals("Clerigo")||personaje.equals("Druida")||personaje.equals("Veterano")){
+                            System.out.println("Estadísticas finales de Jugador 1");
+                            System.out.println("Ataque:     " + ataque1);
+                            System.out.println("Defensa:    " + defensa1);
+                            System.out.println("HP:         " + hp1);
+                            System.out.println("Velocidad:  " + velocidad1);
+                            System.out.println("Habilidad:  " + habilidad1);
+                            System.out.println();
+                        } else {
+                            System.out.println("Por favor, ahora introduzca un personaje válido");
+                        }
+                }
+            }
+            ok = "no ok";
+            while (ok.equals("no ok")) {
+                System.out.println("Seleccione el personaje para Jugador 2 (Escribe el nombre)");
+                System.out.println("Si desea saber más información sobre las Habilidades, escriba 'ayuda'");
+                System.out.println("Personaje:      Atleta          Alquemista      Clerigo         Druida          Veterano");
+                System.out.println("");
+                System.out.println("Ataque:         125             125             100             75              150");
+                System.out.println("Defensa:        125             125             125             125             150");
+                System.out.println("HP:             200             125             150             150             150");
+                System.out.println("Velocidad       25              100             75              150             50");
+                System.out.println("Habilidad:      Corredor        Pociones        Bendicion       Punzante        Cansancio");
+                personaje = in.next();
 
-
-            switch (personaje) {
-                case "Atleta" :
-                    ataque1 = 125;
-                    defensa1 = 100;
-                    velocidad1 = 25;
-                    hp1 = 200;
-                    habilidad1 = "Velocista";
-                case "Justiciero" :
-                    ataque1 = 150;
-                    defensa1 = 125;
-                    velocidad1 = 100;
-                    hp1 = 125;
-                    habilidad1 = "Tablas";
-                case "Clerigo" :
-                    ataque1 = 125;
-                    defensa1 = 100;
-                    velocidad1 = 25;
-                    hp1 = 200;
-                    habilidad1 = "Bencicion";
-                case "Druida" :
-                    ataque1 = 75;
-                    defensa1 = 125;
-                    velocidad1 = 50;
-                    hp1 = 200;
-                    habilidad1 = "Punzante";
-                case "Veterano" :
-                    ataque1 = 150;
-                    defensa1 = 150;
-                    velocidad1 = 50;
-                    hp1 = 150;
-                    habilidad1 = "Cansancio";
-                case "ayuda" :
-                        System.out.println("");
-                        System.out.println("Velocista:  Siempre comienza primero (si el enemigo no tiene la habilidad Velocista");
-                        System.out.println("Tablas:     Hace que el campo de batalla sea igual, haciendo que la habilidad rival no tenga efecto");
-                        System.out.println("Bendicion:  El personaje esta bendecido con magia que hace que regenere un poco de vida al final de la ronda");
-                        System.out.println("Punzante:   Envuelve al personaje en una capa de espinas que hace daño a quien se atreva a atacarle");
-                        System.out.println("Cansancio:  Hace que el personaje duerma después de realizar una acción, a cambio de duplicar la efectividad de la acción");
-                        System.out.println("");
+                switch (personaje) {
+                    case "Atleta":
+                        if (personaje.equals("Atleta")) {
+                            ataque2 = 125;
+                            defensa2 = 100;
+                            velocidad2 = 25;
+                            hp2 = 200;
+                            habilidad2 = "Corredor";
+                            ok = "ok";
+                        }
+                    case "Justiciero":
+                        if (personaje.equals("Alquemista")) {
+                            ataque2 = 150;
+                            defensa2 = 125;
+                            velocidad2 = 100;
+                            hp2 = 125;
+                            habilidad2 = "Pociones";
+                            ok = "ok";
+                        }
+                    case "Clerigo":
+                        if (personaje.equals("Clerigo")) {
+                            ataque2 = 100;
+                            defensa2 = 125;
+                            velocidad2 = 75;
+                            hp2 = 150;
+                            habilidad2 = "Bendicion";
+                            ok = "ok";
+                        }
+                    case "Druida":
+                        if (personaje.equals("Druida")) {
+                            ataque2 = 75;
+                            defensa2 = 125;
+                            velocidad2 = 50;
+                            hp2 = 200;
+                            habilidad2 = "Punzante";
+                            ok = "ok";
+                        }
+                    case "Veterano":
+                        if (personaje.equals("Veterano")) {
+                            ataque2 = 150;
+                            defensa2 = 150;
+                            velocidad2 = 50;
+                            hp2 = 150;
+                            habilidad2 = "Cansancio";
+                            ok = "ok";
+                        }
+                    case "ayuda":
+                        if (personaje.equals("ayuda")) {
+                            System.out.println("");
+                            System.out.println("Corredor:   Siempre comienza primero (si el enemigo no tiene la habilidad Corredor)");
+                            System.out.println("Pociones:   Desbloquea una tercera opción que permite usar pociones cada 3 turnos:");
+                            System.out.println("- Poción de daño:             Suma +10 de daño a tus próximos 2 turnos");
+                            System.out.println("- Poción de curación:         Cura +30 de hp sin que pase del máximo");
+                            System.out.println("- Poción de debilidad:        Baja un 25% el ataque rival durante 2 turnos");
+                            System.out.println("Bendicion:  El personaje esta bendecido con magia que hace que regenere un poco de vida al final de la ronda");
+                            System.out.println("Punzante:   Envuelve al personaje en una capa de espinas que hace daño a quien se atreva a atacarle");
+                            System.out.println("Cansancio:  Hace que el personaje duerma después de realizar una acción, a cambio de duplicar la efectividad de la acción");
+                            System.out.println("");
+                            System.out.println("Inserte cualquier tecla para volver a la selección de personajes");
+                            personaje = in.next();
+                            personaje = "";
+                        }
+                    default:
+                        if (personaje.equals("Atleta")||personaje.equals("Justiciero")||personaje.equals("Clerigo")||personaje.equals("Druida")||personaje.equals("Veterano")){
+                            System.out.println("Estadísticas finales de Jugador 2");
+                            System.out.println("Ataque:     " + ataque2);
+                            System.out.println("Defensa:    " + defensa2);
+                            System.out.println("HP:         " + hp2);
+                            System.out.println("Velocidad:  " + velocidad2);
+                            System.out.println("Habilidad:  " + habilidad2);
+                            System.out.println();
+                        } else {
+                            System.out.println("Por favor, ahora introduzca un personaje válido");
+                        }
+                }
             }
         }
         System.out.println("Introduce cualquier tecla para continuar");
         ok = in.next();
 
-        if (habilidad1.equals("Velocista")) {
+        if (habilidad1.equals("Corredor")) {
             velocidad1 = 999;
         }
-        if (habilidad2.equals("Velocista")) {
+        if (habilidad2.equals("Corredor")) {
             velocidad2 = 999;
         }
 
@@ -361,7 +488,7 @@ public class Combate {
 
                     case 1:
                         if (accion == 1) {
-                            dano = ataque1 - defensa2;
+                            dano = (ataque1 * 5) / defensa2;
                             if (dano < 0) {
                                 dano = 0;
                             }
@@ -381,6 +508,11 @@ public class Combate {
                                 System.out.println();
 
                                 hp2 = hp2 - dano;
+
+                                if (habilidad2.equals("Punzante")){
+                                    System.out.println("La capa punzante de Jugador 2 te hace daño ¡-5 de vida!");
+                                    hp1 = hp1 - 5;
+                                }
                             }
                         }
 
@@ -410,6 +542,12 @@ public class Combate {
 
                     System.out.println("¡Jugador 1 gana!");
                     partida = "Acabada";
+
+                } else if (hp1 <= 0){
+
+                    System.out.println("¡Jugador 2 gana!");
+                    partida = "Acabada";
+
                 } else {
 
                 //Aqui formula ataque jugador 2
@@ -421,7 +559,7 @@ public class Combate {
 
                     case 1:
                         if (accion == 1) {
-                            dano = ataque2 - defensa1;
+                            dano = (ataque2 * 5) / defensa1;
                             if (dano < 0) {
                                 dano = 0;
                             }
@@ -440,6 +578,11 @@ public class Combate {
                                 System.out.println();
 
                                 hp1 = hp1 - dano;
+
+                                if (habilidad1.equals("Punzante")){
+                                    System.out.println("La capa punzante de Jugador 1 te hace daño ¡-5 de vida!");
+                                    hp2 = hp2 - 5;
+                                }
                             }
                         }
 
@@ -470,7 +613,23 @@ public class Combate {
                     System.out.println("¡Jugador 2 gana!");
                     partida = "Acabada";
 
+                } else if (hp2 <= 0){
+
+                    System.out.println("¡Jugador 1 gana!");
+                    partida = "Acabada";
+
                 } else {
+
+                    if (habilidad1.equals("Bendicion")){
+                        hp1 = hp1 + 5;
+                        System.out.println("¡Jugador 1 esta bendecido! Se cura 5 puntos de vida");
+                        System.out.println("");
+                    }
+                    if (habilidad2.equals("Bendicion")){
+                        hp2 = hp2 + 5;
+                        System.out.println("¡Jugador 2 esta bendecido! Se cura 5 puntos de vida");
+                        System.out.println("");
+                    }
 
                     repeticion = hp1;
                     vida1 = "";
@@ -529,7 +688,7 @@ public class Combate {
 
                     case 1:
                         if (accion == 1) {
-                            dano = ataque2 - defensa1;
+                            dano = (ataque2 * 5) / defensa1;
                             if (dano < 0) {
                                 dano = 0;
                             }
@@ -548,6 +707,11 @@ public class Combate {
                                 System.out.println();
 
                                 hp1 = hp1 - dano;
+
+                                if (habilidad1.equals("Punzante")){
+                                    System.out.println("La capa punzante de Jugador 1 te hace daño ¡-5 de vida!");
+                                    hp2 = hp2 - 5;
+                                }
                             }
                         }
                     case 2:
@@ -578,6 +742,11 @@ public class Combate {
                     System.out.println("¡Jugador 2 gana!");
                     partida = "Acabada";
 
+                } else if (hp2 <= 0){
+
+                    System.out.println("¡Jugador 1 gana!");
+                    partida = "Acabada";
+
                 } else {
 
                 //Aqui formula ataque jugador 1
@@ -589,7 +758,7 @@ public class Combate {
 
                     case 1:
                         if (accion == 1) {
-                            dano = ataque1 - defensa2;
+                            dano = (ataque1 * 5) / defensa2;
                             if (dano < 0) {
                                 dano = 0;
                             }
@@ -609,6 +778,11 @@ public class Combate {
                                 System.out.println();
 
                                 hp2 = hp2 - dano;
+
+                                if (habilidad2.equals("Punzante")){
+                                    System.out.println("La capa punzante de Jugador 2 te hace daño ¡-5 de vida!");
+                                    hp1 = hp1 - 5;
+                                }
                             }
                         }
 
@@ -637,7 +811,25 @@ public class Combate {
 
                     System.out.println("¡Jugador 1 gana!");
                     partida = "Acabada";
+
+                } else if (hp1 <= 0){
+
+                    System.out.println("¡Jugador 2 gana!");
+                    partida = "Acabada";
+
                 } else {
+
+                    if (habilidad1.equals("Bendicion")){
+                        hp1 = hp1 + 5;
+                        System.out.println("¡Jugador 1 esta bendecido! Se cura 5 puntos de vida");
+                        System.out.println("");
+                    }
+                    if (habilidad2.equals("Bendicion")){
+                        hp2 = hp2 + 5;
+                        System.out.println("¡Jugador 2 esta bendecido! Se cura 5 puntos de vida");
+                        System.out.println("");
+                    }
+
                     repeticion = hp1;
                     vida1 = "";
                     while (repeticion > 0) {
@@ -664,6 +856,5 @@ public class Combate {
                 }
             }
         }
-    }
     }
 }
