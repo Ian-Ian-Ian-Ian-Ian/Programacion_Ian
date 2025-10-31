@@ -11,7 +11,7 @@ public class Combate {
         String personaje = "";
 
         int customizacion = 0;
-        System.out.println("");
+        System.out.println();
         System.out.println("¿Que desea? [ Crear personaje (1) | Seleccionar personaje ya existente (2) ] ");
         customizacion = in.nextInt();
         while (customizacion < 1 && customizacion > 2) {
@@ -23,32 +23,40 @@ public class Combate {
 
         //Variable de confirmación
         String ok = "no ok";
+
         //Variables jugador 1
         int ataque1 = 0;
         int defensa1 = 0;
         int velocidad1 = 0;
         int hp1 = 0;
         String habilidad1 = "";
-        int cooldown1 = 0;
-        String efecto1 = "";
+        int cooldownAb1 = 0;
+        int cooldown11 = 0;
+        int cooldown12 = 0;
+        String efecto11 = "";
+        String efecto12 = "";
+
         //Variables jugador 2
         int ataque2 = 0;
         int defensa2 = 0;
         int velocidad2 = 0;
         int hp2 = 0;
         String habilidad2 = "";
-        int cooldown2 = 0;
-        String efecto2 = "";
+        int cooldownAb2 = 0;
+        int cooldown21 = 0;
+        int cooldown22 = 0;
+        String efecto21 = "";
+        String efecto22 = "";
 
         if (customizacion == 1) {
-            System.out.println("");
+            System.out.println();
             System.out.println("Las normas son: Un total máximo de 500 puntos en atributos y no más de 200 puntos por atributo");
 
             // Jugador 1 ---------------------------------------------------------------------------------------------------
 
-            System.out.println("");
+            System.out.println();
             System.out.println("Procede a darle los atributos a Jugador 1");
-            System.out.println("");
+            System.out.println();
             int atributos = 500;
 
 
@@ -150,7 +158,7 @@ public class Combate {
             // Jugador 2 ---------------------------------------------------------------------------------------------------
 
             System.out.println("Ahora procede a darle los atributos a Jugador 2");
-            System.out.println("");
+            System.out.println();
             atributos = 500;
             ok = "no ok";
 
@@ -249,12 +257,14 @@ public class Combate {
             System.out.println();
 
         } else if (customizacion == 2) {
-            //Jugador 1 -----------------------------------------------------------------------------------------------------
+
+            // Selección personaje para Jugador 1 ------------------------------------------------------------
+
             while (ok.equals("no ok")) {
                 System.out.println("Seleccione el personaje para Jugador 1 (Escribe el nombre)");
                 System.out.println("Si desea saber más información sobre las Habilidades, escriba 'ayuda'");
                 System.out.println("Personaje:      Atleta          Alquemista      Clerigo         Druida          Veterano");
-                System.out.println("");
+                System.out.println();
                 System.out.println("Ataque:         125             150             100             75              150");
                 System.out.println("Defensa:        100             125             125             125             150");
                 System.out.println("HP:             200             125             150             150             150");
@@ -272,7 +282,8 @@ public class Combate {
                             habilidad1 = "Corredor";
                             ok = "ok";
                         }
-                    case "Justiciero":
+
+                    case "Alquemista":
                         if (personaje.equals("Alquemista")) {
                             ataque1 = 150;
                             defensa1 = 125;
@@ -281,6 +292,7 @@ public class Combate {
                             habilidad1 = "Pociones";
                             ok = "ok";
                         }
+
                     case "Clerigo":
                         if (personaje.equals("Clerigo")) {
                             ataque1 = 100;
@@ -290,15 +302,17 @@ public class Combate {
                             habilidad1 = "Bendicion";
                             ok = "ok";
                         }
+
                     case "Druida":
                         if (personaje.equals("Druida")) {
                             ataque1 = 75;
                             defensa1 = 125;
-                            velocidad1 = 50;
-                            hp1 = 200;
+                            velocidad1 = 150;
+                            hp1 = 150;
                             habilidad1 = "Punzante";
                             ok = "ok";
                         }
+
                     case "Veterano":
                         if (personaje.equals("Veterano")) {
                             ataque1 = 150;
@@ -308,9 +322,10 @@ public class Combate {
                             habilidad1 = "Cansancio";
                             ok = "ok";
                         }
+
                     case "ayuda":
                         if (personaje.equals("ayuda")) {
-                            System.out.println("");
+                            System.out.println();
                             System.out.println("Corredor:   Siempre comienza primero (si el enemigo no tiene la habilidad Corredor)");
                             System.out.println("Pociones:   Desbloquea una tercera opción que permite usar pociones cada 3 turnos:");
                             System.out.println("- Poción de daño:             Suma +10 de daño a tus próximos 2 turnos");
@@ -319,13 +334,14 @@ public class Combate {
                             System.out.println("Bendicion:  El personaje esta bendecido con magia que hace que regenere un poco de vida al final de la ronda");
                             System.out.println("Punzante:   Envuelve al personaje en una capa de espinas que hace daño a quien se atreva a atacarle");
                             System.out.println("Cansancio:  Hace que el personaje duerma después de realizar una acción, a cambio de duplicar la efectividad de la acción");
-                            System.out.println("");
+                            System.out.println();
                             System.out.println("Inserte cualquier tecla para volver a la selección de personajes");
                             personaje = in.next();
                             personaje = "";
                         }
+
                     default:
-                        if (personaje.equals("Atleta")||personaje.equals("Justiciero")||personaje.equals("Clerigo")||personaje.equals("Druida")||personaje.equals("Veterano")){
+                        if (personaje.equals("Atleta")||personaje.equals("Alquemista")||personaje.equals("Clerigo")||personaje.equals("Druida")||personaje.equals("Veterano")){
                             System.out.println("Estadísticas finales de Jugador 1");
                             System.out.println("Ataque:     " + ataque1);
                             System.out.println("Defensa:    " + defensa1);
@@ -339,11 +355,15 @@ public class Combate {
                 }
             }
             ok = "no ok";
+
             while (ok.equals("no ok")) {
+
+                //Selección personaje para Jugador 2 ------------------------------------------------------
+
                 System.out.println("Seleccione el personaje para Jugador 2 (Escribe el nombre)");
                 System.out.println("Si desea saber más información sobre las Habilidades, escriba 'ayuda'");
                 System.out.println("Personaje:      Atleta          Alquemista      Clerigo         Druida          Veterano");
-                System.out.println("");
+                System.out.println();
                 System.out.println("Ataque:         125             125             100             75              150");
                 System.out.println("Defensa:        125             125             125             125             150");
                 System.out.println("HP:             200             125             150             150             150");
@@ -361,15 +381,17 @@ public class Combate {
                             habilidad2 = "Corredor";
                             ok = "ok";
                         }
-                    case "Justiciero":
+
+                    case "Alquemista":
                         if (personaje.equals("Alquemista")) {
-                            ataque2 = 150;
+                            ataque2 = 125;
                             defensa2 = 125;
                             velocidad2 = 100;
                             hp2 = 125;
                             habilidad2 = "Pociones";
                             ok = "ok";
                         }
+
                     case "Clerigo":
                         if (personaje.equals("Clerigo")) {
                             ataque2 = 100;
@@ -379,15 +401,17 @@ public class Combate {
                             habilidad2 = "Bendicion";
                             ok = "ok";
                         }
+
                     case "Druida":
                         if (personaje.equals("Druida")) {
                             ataque2 = 75;
                             defensa2 = 125;
-                            velocidad2 = 50;
-                            hp2 = 200;
+                            velocidad2 = 150;
+                            hp2 = 150;
                             habilidad2 = "Punzante";
                             ok = "ok";
                         }
+
                     case "Veterano":
                         if (personaje.equals("Veterano")) {
                             ataque2 = 150;
@@ -397,9 +421,10 @@ public class Combate {
                             habilidad2 = "Cansancio";
                             ok = "ok";
                         }
+
                     case "ayuda":
                         if (personaje.equals("ayuda")) {
-                            System.out.println("");
+                            System.out.println();
                             System.out.println("Corredor:   Siempre comienza primero (si el enemigo no tiene la habilidad Corredor)");
                             System.out.println("Pociones:   Desbloquea una tercera opción que permite usar pociones cada 3 turnos:");
                             System.out.println("- Poción de daño:             Suma +10 de daño a tus próximos 2 turnos");
@@ -408,13 +433,14 @@ public class Combate {
                             System.out.println("Bendicion:  El personaje esta bendecido con magia que hace que regenere un poco de vida al final de la ronda");
                             System.out.println("Punzante:   Envuelve al personaje en una capa de espinas que hace daño a quien se atreva a atacarle");
                             System.out.println("Cansancio:  Hace que el personaje duerma después de realizar una acción, a cambio de duplicar la efectividad de la acción");
-                            System.out.println("");
+                            System.out.println();
                             System.out.println("Inserte cualquier tecla para volver a la selección de personajes");
                             personaje = in.next();
                             personaje = "";
                         }
+
                     default:
-                        if (personaje.equals("Atleta")||personaje.equals("Justiciero")||personaje.equals("Clerigo")||personaje.equals("Druida")||personaje.equals("Veterano")){
+                        if (personaje.equals("Atleta")||personaje.equals("Alquemista")||personaje.equals("Clerigo")||personaje.equals("Druida")||personaje.equals("Veterano")){
                             System.out.println("Estadísticas finales de Jugador 2");
                             System.out.println("Ataque:     " + ataque2);
                             System.out.println("Defensa:    " + defensa2);
@@ -428,8 +454,11 @@ public class Combate {
                 }
             }
         }
+
         System.out.println("Introduce cualquier tecla para continuar");
         ok = in.next();
+
+        //Para la habilidad
 
         if (habilidad1.equals("Corredor")) {
             velocidad1 = 999;
@@ -438,6 +467,7 @@ public class Combate {
             velocidad2 = 999;
         }
 
+        //Para seleccionar aleatoriamente quien comienza en caso de que sea la misma velocidad
         Random random = new Random();
         while (velocidad1 == velocidad2) {
             velocidad1 = random.nextInt(200);
@@ -450,8 +480,10 @@ public class Combate {
         int ronda = 1;
         int repeticion = 0;
         int accion = 0;
-        String vida1 = "" ;
-        String vida2 = "" ;
+
+        //Esto es para poner bien las barras de vida
+        String vida1 = "";
+        String vida2 = "";
 
         String partida = "En proceso";
 
@@ -481,62 +513,150 @@ public class Combate {
 
                 //Aqui formula de ataque jugador 1
 
-                System.out.println("Selecciona la accion que Jugador 1 haga ( 1 [atacar] | 2 [sanar] )");
+                if (habilidad1.equals("Pociones") && cooldownAb1 == 0) {
+                    System.out.println("Selecciona la accion que Jugador 1 haga ( 1 [atacar] | 2 [sanar] | 3 [pocion] )");
+                } else if (habilidad1.equals("Pociones") && cooldownAb1 > 0) {
+                    System.out.println("Selecciona la accion que Jugador 1 haga ( 1 [atacar] | 2 [sanar] | [ " + cooldownAb1 + " turnos restantes ] )");
+                } else {
+                    System.out.println("Selecciona la accion que Jugador 1 haga ( 1 [atacar] | 2 [sanar] )");
+                }
                 accion = in.nextInt();
 
-                switch (accion) {
+                if (habilidad1.equals("Cansancio") && efecto11.equals("Dormir")) {
+                    System.out.println("Jugador 1 esta durmiendo. Pasa el turno");
+                    System.out.println();
+                    efecto11 = "";
+                } else {
+                    switch (accion) {
 
-                    case 1:
-                        if (accion == 1) {
-                            dano = (ataque1 * 5) / defensa2;
-                            if (dano < 0) {
-                                dano = 0;
-                            }
-                            dano = dano + random.nextInt(10);
+                        case 1:
+                            if (accion == 1) {
+                                dano = (ataque1 * 5) / defensa2;
+                                if (dano < 0) {
+                                    dano = 0;
+                                }
+                                dano = dano + random.nextInt(10);
 
-                            if (dano == 0) {
-                                System.out.println("¡La accion ha fallado!");
-                            } else {
-
-                                critico = random.nextInt(100);
-                                if (critico >= 0 && critico <= 15) {
+                                if (habilidad1.equals("Cansancio")){
                                     dano = dano * 2;
-                                    System.out.println("!¡Crítico!");
+                                    efecto11 = "Dormir";
                                 }
 
-                                System.out.println("Jugador 1 hace " + dano + " puntos de daño");
-                                System.out.println();
+                                if (efecto11.equals("Daño")){
+                                    dano = dano + 10;
+                                    cooldown11--;
+                                    if (cooldown11 == 0){
+                                        efecto11 = "";
+                                        System.out.println("El efecto de 'Pocion de Daño' ha terminado.");
+                                    }
+                                }
+                                if (efecto12.equals("Debilidad")){
+                                    dano = dano - (dano * 25 / 100);
+                                    cooldown12--;
+                                    if (cooldown12 == 0) {
+                                        efecto12 = "";
+                                        System.out.println("El efecto de 'Pocion de Debilidad' ha terminado.");
+                                    }
+                                }
 
-                                hp2 = hp2 - dano;
+                                if (dano == 0) {
+                                    System.out.println("¡La accion ha fallado!");
+                                } else {
 
-                                if (habilidad2.equals("Punzante")){
-                                    System.out.println("La capa punzante de Jugador 2 te hace daño ¡-5 de vida!");
-                                    hp1 = hp1 - 5;
+                                    critico = random.nextInt(100);
+                                    if (critico >= 0 && critico <= 15) {
+                                        dano = dano * 2;
+                                        System.out.println("!¡Crítico!");
+                                    }
+
+                                    System.out.println("Jugador 1 hace " + dano + " puntos de daño");
+                                    System.out.println();
+
+                                    hp2 = hp2 - dano;
+
+                                    if (habilidad2.equals("Punzante")) {
+                                        System.out.println("La capa punzante de Jugador 2 te hace daño ¡-5 de vida!");
+                                        hp1 = hp1 - 5;
+                                    }
                                 }
                             }
-                        }
 
-                    case 2:
-                        if (accion == 2) {
-                            dano = random.nextInt(10);
-                            hp1 = hp1 + dano;
+                        case 2:
+                            if (accion == 2) {
+                                dano = random.nextInt(10);
 
-                            if (dano == 0) {
-                                System.out.println("¡La accion ha fallado!");
-                            } else if (hp1 > 200) {
-                                System.out.println("Has alcanzado el límite de 200 de hp");
-                                hp1 = 200;
+                                if (habilidad1.equals("Cansancio") && dano > 0){
+                                    dano = dano * 2;
+                                    efecto11 = "Dormir";
+                                }
+                                hp1 = hp1 + dano;
+
+                                if (dano == 0) {
+                                    System.out.println("¡La accion ha fallado!");
+                                } else if (hp1 > 200) {
+                                    System.out.println("Has alcanzado el límite de 200 de hp");
+                                    hp1 = 200;
+                                } else {
+                                    System.out.println("Jugador 1 se cura " + dano + " puntos de vida");
+                                }
+                            }
+
+                        case 3:
+                            if (accion == 3 && habilidad1.equals("Pociones") && cooldown11 == 0) {
+                                System.out.println("Selecciona la Pocion: ( 1 [daño] | 2 [curación] | 3 [debilidad] ");
+                                accion = in.nextInt();
+
+                                switch (accion){
+                                    case 1:
+                                        if (accion == 1) {
+                                            System.out.println("Jugador 1 hace +10 puntos de dano");
+                                            efecto11 = "Daño";
+                                            cooldown11 = 2;
+                                        }
+                                    case 2:
+                                        if (accion == 2) {
+                                            System.out.println("Jugador 1 se cura 30 puntos de vida");
+                                            hp1 = hp1 + 30;
+                                            if (hp1 > 200) {
+                                                System.out.println("Has alcanzado el límite de 200 de hp");
+                                                hp1 = 200;
+                                            }
+                                        }
+                                    case 3:
+                                        if (accion == 3) {
+                                            System.out.println("Jugador 1 lanza una Poción de Debilidad a Jugador 2");
+                                            efecto22 = "Debilidad";
+                                            cooldown22 = 2;
+                                        }
+                                    default:
+                                        if (accion == 1 || accion == 2 || accion == 3) {
+                                            accion = 3;
+                                            cooldownAb1 = 3;
+                                        } else {
+                                            System.out.println("Eso no es una opción. ¡La acción ha fallado!");
+                                        }
+                                }
+                            } else if (accion == 3 && habilidad1.equals("Pociones") && cooldownAb1 > 0) {
+                                System.out.println("La habilidad todavía no esta preparada");
+                            }
+                        default:
+                            if (habilidad1.equals("Pociones")) {
+                                if (accion == 1 || accion == 2 || accion == 3) {
+                                    System.out.println();
+                                } else {
+                                    System.out.println("Eso no es una accion. ¡Pierdes el turno!");
+                                }
                             } else {
-                                System.out.println("Jugador 1 se cura " + dano + " puntos de vida");
+                                if (accion == 1 || accion == 2) {
+                                    System.out.println();
+                                } else {
+                                    System.out.println("Eso no es una accion. ¡Pierdes el turno!");
+                                }
                             }
-                        }
-
-                    default:
-                        if (accion == 1 || accion == 2) {
-                            System.out.println("");
-                        } else {
-                            System.out.println("Eso no es una accion. ¡Pierdes el turno!");
-                        }
+                    }
+                }
+                if (cooldownAb1 > 0) {
+                    cooldownAb1--;
                 }
                 if (hp2 <= 0) {
 
@@ -552,61 +672,151 @@ public class Combate {
 
                 //Aqui formula ataque jugador 2
 
-                System.out.println("Selecciona la accion que Jugador 2 haga ( 1 [atacar] | 2 [sanar] )");
-                accion = in.nextInt();
+                    if (habilidad2.equals("Pociones") && cooldownAb2 == 0) {
+                        System.out.println("Selecciona la accion que Jugador 2 haga ( 1 [atacar] | 2 [sanar] | 3 [pocion] )");
+                    } else if (habilidad2.equals("Pociones") && cooldownAb2 > 0) {
+                        System.out.println("Selecciona la accion que Jugador 2 haga ( 1 [atacar] | 2 [sanar] | [ " + cooldownAb2 + " turnos restantes ]");
+                    } else {
+                        System.out.println("Selecciona la accion que Jugador 2 haga ( 1 [atacar] | 2 [sanar] )");
+                    }
+                    accion = in.nextInt();
 
-                switch (accion) {
+                    if (habilidad2.equals("Cansancio") && efecto21.equals("Dormir")) {
+                        System.out.println("Jugador 2 esta durmiendo. Pasa el turno");
+                        System.out.println();
+                        efecto21 = "";
+                    } else {
+                        switch (accion) {
 
-                    case 1:
-                        if (accion == 1) {
-                            dano = (ataque2 * 5) / defensa1;
-                            if (dano < 0) {
-                                dano = 0;
-                            }
-                            dano = dano + random.nextInt(10);
+                            case 1:
+                                if (accion == 1) {
+                                    dano = (ataque2 * 5) / defensa1;
+                                    if (dano < 0) {
+                                        dano = 0;
+                                    }
+                                    dano = dano + random.nextInt(10);
 
-                            if (dano == 0) {
-                                System.out.println("¡La accion ha fallado!");
-                            } else {
-                                critico = random.nextInt(100);
-                                if (critico >= 0 && critico <= 15) {
-                                    dano = dano * 2;
-                                    System.out.println("!¡Crítico!");
+                                    if (habilidad2.equals("Cansancio")){
+                                        dano = dano * 2;
+                                        efecto21 = "Dormir";
+                                    }
+
+                                    if (efecto21.equals("Daño")){
+                                        dano = dano + 10;
+                                        cooldown21--;
+                                        if (cooldown21 == 0){
+                                            efecto21 = "";
+                                            System.out.println("El efecto de 'Pocion de Daño' ha terminado.");
+                                        }
+                                    }
+                                    if (efecto22.equals("Debilidad")){
+                                        dano = dano - (dano * 25 / 100);
+                                        cooldown22--;
+                                        if (cooldown22 == 0) {
+                                            efecto22 = "";
+                                            System.out.println("El efecto de 'Pocion de Debilidad' ha terminado.");
+                                        }
+                                    }
+
+                                    if (dano == 0) {
+                                        System.out.println("¡La accion ha fallado!");
+                                    } else {
+
+                                        critico = random.nextInt(100);
+                                        if (critico >= 0 && critico <= 15) {
+                                            dano = dano * 2;
+                                            System.out.println("!¡Crítico!");
+                                        }
+
+                                        System.out.println("Jugador 2 hace " + dano + " puntos de daño");
+                                        System.out.println();
+
+                                        hp1 = hp1 - dano;
+
+                                        if (habilidad1.equals("Punzante")) {
+                                            System.out.println("La capa punzante de Jugador 2 te hace daño ¡-5 de vida!");
+                                            hp2 = hp2 - 5;
+                                        }
+                                    }
                                 }
 
-                                System.out.println("Jugador 2 hace " + dano + " puntos de daño");
-                                System.out.println();
+                            case 2:
+                                if (accion == 2) {
+                                    dano = random.nextInt(10);
 
-                                hp1 = hp1 - dano;
+                                    if (habilidad2.equals("Cansancio") && dano > 0){
+                                        dano = dano * 2;
+                                        efecto21 = "Dormir";
+                                    }
+                                    hp2 = hp2 + dano;
 
-                                if (habilidad1.equals("Punzante")){
-                                    System.out.println("La capa punzante de Jugador 1 te hace daño ¡-5 de vida!");
-                                    hp2 = hp2 - 5;
+                                    if (dano == 0) {
+                                        System.out.println("¡La accion ha fallado!");
+                                    } else if (hp2 > 200) {
+                                        System.out.println("Has alcanzado el límite de 200 de hp");
+                                        hp2 = 200;
+                                    } else {
+                                        System.out.println("Jugador 2 se cura " + dano + " puntos de vida");
+                                    }
                                 }
-                            }
-                        }
 
-                    case 2:
-                        if (accion == 2) {
-                            dano = random.nextInt(10);
-                            hp2 = hp2 + dano;
+                            case 3:
+                                if (accion == 3 && habilidad2.equals("Pociones") && cooldownAb2 == 0) {
+                                    System.out.println("Selecciona la Pocion: ( 1 [daño] | 2 [curación] | 3 [debilidad] ");
+                                    accion = in.nextInt();
 
-                            if (dano == 0) {
-                                System.out.println("¡La accion ha fallado!");
-                            } else if (hp2 > 200) {
-                                System.out.println("Has alcanzado el límite de 200 de hp");
-                                hp2 = 200;
-                            } else {
-                                System.out.println("Jugador 2 se cura " + dano + " puntos de vida");
-                            }
+                                    switch (accion){
+                                        case 1:
+                                            if (accion == 1) {
+                                                System.out.println("Jugador 2 hace +10 puntos de dano");
+                                                efecto21 = "Daño";
+                                                cooldown21 = 2;
+                                            }
+                                        case 2:
+                                            if (accion == 2) {
+                                                System.out.println("Jugador 2 se cura 30 puntos de vida");
+                                                hp2 = hp2 + 30;
+                                                if (hp2 > 200) {
+                                                    System.out.println("Has alcanzado el límite de 200 de hp");
+                                                    hp2 = 200;
+                                                }
+                                            }
+                                        case 3:
+                                            if (accion == 3) {
+                                                System.out.println("Jugador 2 lanza una Poción de Debilidad a Jugador 1");
+                                                efecto22 = "Debilidad";
+                                                cooldown22 = 2;
+                                            }
+                                        default:
+                                            if (accion == 1 || accion == 2 || accion == 3) {
+                                                accion = 3;
+                                                cooldownAb2 = 3;
+                                            } else {
+                                                System.out.println("Eso no es una opción. ¡La acción ha fallado!");
+                                            }
+                                    }
+                                } else if (accion == 3 && habilidad2.equals("Pociones") && cooldownAb2 > 0) {
+                                    System.out.println("La habilidad todavía no esta preparada");
+                                }
+                            default:
+                                if (habilidad2.equals("Pociones")) {
+                                    if (accion == 1 || accion == 2 || accion == 3) {
+                                        System.out.println();
+                                    } else {
+                                        System.out.println("Eso no es una accion. ¡Pierdes el turno!");
+                                    }
+                                } else {
+                                    if (accion == 1 || accion == 2) {
+                                        System.out.println();
+                                    } else {
+                                        System.out.println("Eso no es una accion. ¡Pierdes el turno!");
+                                    }
+                                }
                         }
-                    default:
-                        if (accion == 1 || accion == 2){
-                            System.out.println("");
-                        } else {
-                            System.out.println("Eso no es una accion. ¡Pierdes el turno!");
-                        }
-                }
+                    }
+                    if (cooldownAb2 > 0) {
+                        cooldownAb2--;
+                    }
 
                 if (hp1 <= 0) {
 
@@ -623,12 +833,12 @@ public class Combate {
                     if (habilidad1.equals("Bendicion")){
                         hp1 = hp1 + 5;
                         System.out.println("¡Jugador 1 esta bendecido! Se cura 5 puntos de vida");
-                        System.out.println("");
+                        System.out.println();
                     }
                     if (habilidad2.equals("Bendicion")){
                         hp2 = hp2 + 5;
                         System.out.println("¡Jugador 2 esta bendecido! Se cura 5 puntos de vida");
-                        System.out.println("");
+                        System.out.println();
                     }
 
                     repeticion = hp1;
@@ -649,7 +859,7 @@ public class Combate {
                     System.out.println("Jugador 2: " + hp2 + " " + vida2);
 
                     // aqui
-                    System.out.println("");
+                    System.out.println();
 
                     ronda++;
                 }
@@ -681,60 +891,150 @@ public class Combate {
 
                 //Aqui formula de ataque jugador 2
 
-                System.out.println("Selecciona la accion que Jugador 2 haga ( 1 [atacar] | 2 [sanar] )");
+                if (habilidad2.equals("Pociones") && cooldownAb2 == 0) {
+                    System.out.println("Selecciona la accion que Jugador 2 haga ( 1 [atacar] | 2 [sanar] | 3 [pocion] )");
+                } else if (habilidad2.equals("Pociones") && cooldownAb2 > 0) {
+                    System.out.println("Selecciona la accion que Jugador 2 haga ( 1 [atacar] | 2 [sanar] | [ " + cooldownAb2 + " turnos restantes ]");
+                } else {
+                    System.out.println("Selecciona la accion que Jugador 2 haga ( 1 [atacar] | 2 [sanar] )");
+                }
                 accion = in.nextInt();
 
-                switch (accion) {
+                if (habilidad2.equals("Cansancio") && efecto21.equals("Dormir")) {
+                    System.out.println("Jugador 2 esta durmiendo. Pasa el turno");
+                    System.out.println();
+                    efecto21 = "";
+                } else {
+                    switch (accion) {
 
-                    case 1:
-                        if (accion == 1) {
-                            dano = (ataque2 * 5) / defensa1;
-                            if (dano < 0) {
-                                dano = 0;
-                            }
-                            dano = dano + random.nextInt(10);
+                        case 1:
+                            if (accion == 1) {
+                                dano = (ataque2 * 5) / defensa1;
+                                if (dano < 0) {
+                                    dano = 0;
+                                }
+                                dano = dano + random.nextInt(10);
 
-                            if (dano == 0) {
-                                System.out.println("¡La accion ha fallado!");
-                            } else {
-                                critico = random.nextInt(100);
-                                if (critico >= 0 && critico <= 15) {
+                                if (habilidad2.equals("Cansancio")){
                                     dano = dano * 2;
-                                    System.out.println("!¡Crítico!");
+                                    efecto21 = "Dormir";
                                 }
 
-                                System.out.println("Jugador 2 hace " + dano + " puntos de daño");
-                                System.out.println();
+                                if (efecto21.equals("Daño")){
+                                    dano = dano + 10;
+                                    cooldown21--;
+                                    if (cooldown21 == 0){
+                                        efecto21 = "";
+                                        System.out.println("El efecto de 'Pocion de Daño' ha terminado.");
+                                    }
+                                }
+                                if (efecto22.equals("Debilidad")){
+                                    dano = dano - (dano * 25 / 100);
+                                    cooldown22--;
+                                    if (cooldown22 == 0) {
+                                        efecto22 = "";
+                                        System.out.println("El efecto de 'Pocion de Debilidad' ha terminado.");
+                                    }
+                                }
 
-                                hp1 = hp1 - dano;
+                                if (dano == 0) {
+                                    System.out.println("¡La accion ha fallado!");
+                                } else {
 
-                                if (habilidad1.equals("Punzante")){
-                                    System.out.println("La capa punzante de Jugador 1 te hace daño ¡-5 de vida!");
-                                    hp2 = hp2 - 5;
+                                    critico = random.nextInt(100);
+                                    if (critico >= 0 && critico <= 15) {
+                                        dano = dano * 2;
+                                        System.out.println("!¡Crítico!");
+                                    }
+
+                                    System.out.println("Jugador 2 hace " + dano + " puntos de daño");
+                                    System.out.println();
+
+                                    hp1 = hp1 - dano;
+
+                                    if (habilidad1.equals("Punzante")) {
+                                        System.out.println("La capa punzante de Jugador 2 te hace daño ¡-5 de vida!");
+                                        hp2 = hp2 - 5;
+                                    }
                                 }
                             }
-                        }
-                    case 2:
-                        if (accion == 2) {
-                            dano = random.nextInt(10);
-                            hp2 = hp2 + dano;
 
-                            if (dano == 0) {
-                                System.out.println("¡La accion ha fallado!");
-                            } else if (hp2 > 200) {
-                                System.out.println("Has alcanzado el límite de 200 de hp");
-                                hp2 = 200;
+                        case 2:
+                            if (accion == 2) {
+                                dano = random.nextInt(10);
+
+                                if (habilidad2.equals("Cansancio") && dano > 0){
+                                    dano = dano * 2;
+                                    efecto21 = "Dormir";
+                                }
+                                hp2 = hp2 + dano;
+
+                                if (dano == 0) {
+                                    System.out.println("¡La accion ha fallado!");
+                                } else if (hp2 > 200) {
+                                    System.out.println("Has alcanzado el límite de 200 de hp");
+                                    hp2 = 200;
+                                } else {
+                                    System.out.println("Jugador 2 se cura " + dano + " puntos de vida");
+                                }
+                            }
+
+                        case 3:
+                            if (accion == 3 && habilidad2.equals("Pociones") && cooldownAb2 == 0) {
+                                System.out.println("Selecciona la Pocion: ( 1 [daño] | 2 [curación] | 3 [debilidad] ");
+                                accion = in.nextInt();
+
+                                switch (accion){
+                                    case 1:
+                                        if (accion == 1) {
+                                            System.out.println("Jugador 2 hace +10 puntos de dano");
+                                            efecto21 = "Daño";
+                                            cooldown21 = 2;
+                                        }
+                                    case 2:
+                                        if (accion == 2) {
+                                            System.out.println("Jugador 2 se cura 30 puntos de vida");
+                                            hp2 = hp2 + 30;
+                                            if (hp2 > 200) {
+                                                System.out.println("Has alcanzado el límite de 200 de hp");
+                                                hp2 = 200;
+                                            }
+                                        }
+                                    case 3:
+                                        if (accion == 3) {
+                                            System.out.println("Jugador 2 lanza una Poción de Debilidad a Jugador 1");
+                                            efecto22 = "Debilidad";
+                                            cooldown22 = 2;
+                                        }
+                                    default:
+                                        if (accion == 1 || accion == 2 || accion == 3) {
+                                            accion = 3;
+                                            cooldownAb2 = 3;
+                                        } else {
+                                            System.out.println("Eso no es una opción. ¡La acción ha fallado!");
+                                        }
+                                }
+                            } else if (accion == 3 && habilidad2.equals("Pociones") && cooldownAb2 > 0) {
+                                System.out.println("La habilidad todavía no esta preparada");
+                            }
+                        default:
+                            if (habilidad2.equals("Pociones")) {
+                                if (accion == 1 || accion == 2 || accion == 3) {
+                                    System.out.println();
+                                } else {
+                                    System.out.println("Eso no es una accion. ¡Pierdes el turno!");
+                                }
                             } else {
-                                System.out.println("Jugador 2 se cura " + dano + " puntos de vida");
+                                if (accion == 1 || accion == 2) {
+                                    System.out.println();
+                                } else {
+                                    System.out.println("Eso no es una accion. ¡Pierdes el turno!");
+                                }
                             }
-                        }
-
-                    default:
-                        if (accion == 1 || accion == 2) {
-                            System.out.println("");
-                        } else {
-                            System.out.println("Eso no es una accion. ¡Pierdes el turno!");
-                        }
+                    }
+                }
+                if (cooldownAb2 > 0) {
+                    cooldownAb2--;
                 }
 
                 if (hp1 <= 0) {
@@ -751,62 +1051,152 @@ public class Combate {
 
                 //Aqui formula ataque jugador 1
 
-                System.out.println("Selecciona la accion que Jugador 1 haga ( 1 [atacar] | 2 [sanar] )");
-                accion = in.nextInt();
+                    if (habilidad1.equals("Pociones") && cooldownAb1 == 0) {
+                        System.out.println("Selecciona la accion que Jugador 1 haga ( 1 [atacar] | 2 [sanar] | 3 [pocion] )");
+                    } else if (habilidad1.equals("Pociones") && cooldownAb1 > 0) {
+                        System.out.println("Selecciona la accion que Jugador 1 haga ( 1 [atacar] | 2 [sanar] | [ " + cooldownAb1 + " turnos restantes ]");
+                    } else {
+                        System.out.println("Selecciona la accion que Jugador 1 haga ( 1 [atacar] | 2 [sanar] )");
+                    }
+                    accion = in.nextInt();
 
-                switch (accion) {
+                    if (habilidad1.equals("Cansancio") && efecto11.equals("Dormir")) {
+                        System.out.println("Jugador 1 esta durmiendo. Pasa el turno");
+                        System.out.println();
+                        efecto11 = "";
+                    } else {
+                        switch (accion) {
 
-                    case 1:
-                        if (accion == 1) {
-                            dano = (ataque1 * 5) / defensa2;
-                            if (dano < 0) {
-                                dano = 0;
-                            }
-                            dano = dano + random.nextInt(10);
+                            case 1:
+                                if (accion == 1) {
+                                    dano = (ataque1 * 5) / defensa2;
+                                    if (dano < 0) {
+                                        dano = 0;
+                                    }
+                                    dano = dano + random.nextInt(10);
 
-                            if (dano == 0) {
-                                System.out.println("¡La accion ha fallado!");
-                            } else {
+                                    if (habilidad1.equals("Cansancio")){
+                                        dano = dano * 2;
+                                        efecto11 = "Dormir";
+                                    }
 
-                                critico = random.nextInt(100);
-                                if (critico >= 0 && critico <= 15) {
-                                    dano = dano * 2;
-                                    System.out.println("!¡Crítico!");
+                                    if (efecto11.equals("Daño")){
+                                        dano = dano + 10;
+                                        cooldown11--;
+                                        if (cooldown11 == 0){
+                                            efecto11 = "";
+                                            System.out.println("El efecto de 'Pocion de Daño' ha terminado.");
+                                        }
+                                    }
+                                    if (efecto12.equals("Debilidad")){
+                                        dano = dano - (dano * 25 / 100);
+                                        cooldown12--;
+                                        if (cooldown12 == 0) {
+                                            efecto12 = "";
+                                            System.out.println("El efecto de 'Pocion de Debilidad' ha terminado.");
+                                        }
+                                    }
+
+                                    if (dano == 0) {
+                                        System.out.println("¡La accion ha fallado!");
+                                    } else {
+
+                                        critico = random.nextInt(100);
+                                        if (critico >= 0 && critico <= 15) {
+                                            dano = dano * 2;
+                                            System.out.println("!¡Crítico!");
+                                        }
+
+                                        System.out.println("Jugador 1 hace " + dano + " puntos de daño");
+                                        System.out.println();
+
+                                        hp2 = hp2 - dano;
+
+                                        if (habilidad2.equals("Punzante")) {
+                                            System.out.println("La capa punzante de Jugador 2 te hace daño ¡-5 de vida!");
+                                            hp1 = hp1 - 5;
+                                        }
+                                    }
                                 }
 
-                                System.out.println("Jugador 1 hace " + dano + " puntos de daño");
-                                System.out.println();
+                            case 2:
+                                if (accion == 2) {
+                                    dano = random.nextInt(10);
 
-                                hp2 = hp2 - dano;
+                                    if (habilidad1.equals("Cansancio") && dano > 0){
+                                        dano = dano * 2;
+                                        efecto11 = "Dormir";
+                                    }
+                                    hp1 = hp1 + dano;
 
-                                if (habilidad2.equals("Punzante")){
-                                    System.out.println("La capa punzante de Jugador 2 te hace daño ¡-5 de vida!");
-                                    hp1 = hp1 - 5;
+                                    if (dano == 0) {
+                                        System.out.println("¡La accion ha fallado!");
+                                    } else if (hp1 > 200) {
+                                        System.out.println("Has alcanzado el límite de 200 de hp");
+                                        hp1 = 200;
+                                    } else {
+                                        System.out.println("Jugador 1 se cura " + dano + " puntos de vida");
+                                    }
                                 }
-                            }
-                        }
 
-                    case 2:
-                        if (accion == 2) {
-                            dano = random.nextInt(10);
-                            hp1 = hp1 + dano;
+                            case 3:
+                                if (accion == 3 && habilidad1.equals("Pociones") && cooldown11 == 0) {
+                                    System.out.println("Selecciona la Pocion: ( 1 [daño] | 2 [curación] | 3 [debilidad] ");
+                                    accion = in.nextInt();
 
-                            if (dano == 0) {
-                                System.out.println("¡La accion ha fallado!");
-                            } else if (hp1 > 200) {
-                                System.out.println("Has alcanzado el límite de 200 de hp");
-                                hp1 = 200;
-                            } else {
-                                System.out.println("Jugador 1 se cura " + dano + " puntos de vida");
-                            }
+                                    switch (accion){
+                                        case 1:
+                                            if (accion == 1) {
+                                                System.out.println("Jugador 1 hace +10 puntos de dano");
+                                                efecto11 = "Daño";
+                                                cooldown11 = 2;
+                                            }
+                                        case 2:
+                                            if (accion == 2) {
+                                                System.out.println("Jugador 1 se cura 30 puntos de vida");
+                                                hp1 = hp1 + 30;
+                                                if (hp1 > 200) {
+                                                    System.out.println("Has alcanzado el límite de 200 de hp");
+                                                    hp1 = 200;
+                                                }
+                                            }
+                                        case 3:
+                                            if (accion == 3) {
+                                                System.out.println("Jugador 1 lanza una Poción de Debilidad a Jugador 2");
+                                                efecto22 = "Debilidad";
+                                                cooldown22 = 2;
+                                            }
+                                        default:
+                                            if (accion == 1 || accion == 2 || accion == 3) {
+                                                accion = 3;
+                                                cooldownAb1 = 3;
+                                            } else {
+                                                System.out.println("Eso no es una opción. ¡La acción ha fallado!");
+                                            }
+                                    }
+                                } else if (accion == 3 && habilidad1.equals("Pociones") && cooldownAb1 > 0) {
+                                    System.out.println("La habilidad todavía no esta preparada");
+                                }
+                            default:
+                                if (habilidad1.equals("Pociones")) {
+                                    if (accion == 1 || accion == 2 || accion == 3) {
+                                        System.out.println();
+                                    } else {
+                                        System.out.println("Eso no es una accion. ¡Pierdes el turno!");
+                                    }
+                                } else {
+                                    if (accion == 1 || accion == 2) {
+                                        System.out.println();
+                                    } else {
+                                        System.out.println("Eso no es una accion. ¡Pierdes el turno!");
+                                    }
+                                }
                         }
-                    default:
-                        if (accion == 1 || accion == 2) {
-                            System.out.println("");
-                        } else {
-                            System.out.println("Eso no es una accion. ¡Pierdes el turno!");
-                        }
-                }
+                    }
+                    if (cooldownAb1 > 0) {
+                        cooldownAb1--;
+                    }
+
                 if (hp2 <= 0) {
 
                     System.out.println("¡Jugador 1 gana!");
@@ -822,12 +1212,12 @@ public class Combate {
                     if (habilidad1.equals("Bendicion")){
                         hp1 = hp1 + 5;
                         System.out.println("¡Jugador 1 esta bendecido! Se cura 5 puntos de vida");
-                        System.out.println("");
+                        System.out.println();
                     }
                     if (habilidad2.equals("Bendicion")){
                         hp2 = hp2 + 5;
                         System.out.println("¡Jugador 2 esta bendecido! Se cura 5 puntos de vida");
-                        System.out.println("");
+                        System.out.println();
                     }
 
                     repeticion = hp1;
@@ -848,7 +1238,7 @@ public class Combate {
                     System.out.println("Jugador 2: " + hp2 + " " + vida2);
 
                     // aqui
-                    System.out.println("");
+                    System.out.println();
 
                     ronda++;
 
