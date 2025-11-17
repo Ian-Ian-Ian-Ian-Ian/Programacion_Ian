@@ -32,14 +32,14 @@ public class Tema3Ejercicio3 {
 
         boolean valido = validRadius(radio);
 
+//TODO: sobra el if
 
-        if (!valido){
             while (!valido) {
                 System.out.println("Eso no es un radio válido, vuelve a introducirlo ");
                 radio = in.nextInt();
                 valido = validRadius(radio);
             }
-        }
+
 
         double perimetro = calculateCirclePerimeter(radio);
         double area = calculateCircleArea(radio);

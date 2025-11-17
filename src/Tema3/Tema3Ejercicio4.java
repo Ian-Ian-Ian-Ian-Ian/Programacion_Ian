@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Tema3Ejercicio4 {
     public static void showMenu(){
-        Scanner in = new Scanner(System.in);
+        //Scanner in = new Scanner(System.in);
 
         System.out.println("Selecciona la función que quieras");
         System.out.println("---------------------------------");
@@ -13,12 +13,12 @@ public class Tema3Ejercicio4 {
     }
 
     public static double dollar2euro(double euros) {
-        euros = euros * 1.16;
+        euros = euros * 0.86;
         return euros;
     }
 
     public static double euro2dollar(double dolares) {
-        dolares = dolares * 0.86;
+        dolares = dolares * 1.16;
         return dolares;
     }
 
@@ -29,12 +29,11 @@ public class Tema3Ejercicio4 {
         showMenu();
         int accion = in.nextInt();
 
-        if (accion < 1 && accion > 2) {
             while (accion < 1 && accion > 2) {
                 System.out.println("Por favor, selecciona una opción correcta");
                 accion = in.nextInt();
             }
-        }
+
 
         System.out.println("Dime la cantidad que quieres cambiar");
         double dinero = in.nextDouble();

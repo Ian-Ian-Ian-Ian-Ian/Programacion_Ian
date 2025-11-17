@@ -56,21 +56,18 @@ public class Tema3Ejercicio8 {
 
         System.out.println("Dime un día de un mes (1-31)");
         int dia = in.nextInt();
-        if (dia < 0 && dia > 31){
             while (dia < 1 && dia > 31) {
                 System.out.println("He dicho dime un día de un mes (1-31)");
                 dia = in.nextInt();
             }
-        }
+
 
         System.out.println("Dime un mes del año (1-12)");
         int mes = in.nextInt();
-        if (mes < 0 && mes > 31){
             while (mes < 1 && mes > 31) {
                 System.out.println("He dicho dime un mes del año (1-12)");
                 mes = in.nextInt();
             }
-        }
         System.out.println("Dime un año");
         int ano = in.nextInt();
 

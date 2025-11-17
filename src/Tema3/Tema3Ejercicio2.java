@@ -2,10 +2,12 @@ package Tema3;
 
 import java.util.Scanner;
 
+import static Tema3.Tema3Ejercicio1.numberSign;
+
 public class Tema3Ejercicio2 {
 
     public static boolean isAdult(int edad){
-
+        //return edad>=18;
         if (edad >= 18){
             return true;
         } else {
@@ -19,7 +21,7 @@ public class Tema3Ejercicio2 {
 
         System.out.println("Dime un número entero");
         int numero = in.nextInt();
-        numero = Tema3Ejercicio1.numberSign(numero);
+        numero = numberSign(numero);
 
         switch (numero) {
             case -1:

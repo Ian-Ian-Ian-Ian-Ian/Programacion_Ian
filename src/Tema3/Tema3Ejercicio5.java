@@ -23,12 +23,11 @@ public class Tema3Ejercicio5 {
         System.out.println("Dime un número del 1 al 10 para mostrar su tabla");
         int numero = in.nextInt();
 
-        if (numero < 1 && numero > 10){
             while (numero < 1 && numero > 10){
                 System.out.println("Dime un número del 1 al 10 he dicho");
                 numero = in.nextInt();
             }
-        }
+
         numberTable(numero);
     }
 }

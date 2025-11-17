@@ -30,15 +30,26 @@ public class Tema3Ejercicio7 {
 
         System.out.println("Dime números positivos y cuando quieras acabar pon 0");
         int numero = in.nextInt();
-            while (numero > 0){
-                primeNumber(numero);
-                numero = in.nextInt();
-                if (numero < 0){
-                    while (numero < 0){
+
+            if (numero > 0) {
+                while (numero > 0) {
+                    primeNumber(numero);
+                    numero = in.nextInt();
+                }
+            } else if (numero < 0) {
+                while (numero < 0){
+                    System.out.println("Numero positivo he dicho");
+                    numero = in.nextInt();
+                }
+                while (numero > 0) {
+                    primeNumber(numero);
+                    numero = in.nextInt();
+                    while (numero < 0) {
                         System.out.println("Numero positivo he dicho");
                         numero = in.nextInt();
                     }
                 }
             }
+                System.out.println("¡Adios!");
     }
 }
