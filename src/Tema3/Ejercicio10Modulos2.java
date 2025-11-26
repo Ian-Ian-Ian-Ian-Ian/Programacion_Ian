@@ -78,8 +78,10 @@ public class Ejercicio10Modulos2 {
                 boolean primo = primeNumber(resulint);
                 if (primo) {
                     System.out.println("El número es primo");
-                } else if (!primo) {
-                    primo = notPrimeNumber(resulint);
+                }
+
+                primo = notPrimeNumber(resulint);
+                if (primo) {
                     System.out.println("El número NO es primo");
                 }
                 break;
@@ -163,4 +165,3 @@ public class Ejercicio10Modulos2 {
         }
     }
 }
-

@@ -134,25 +134,11 @@ public class MyMath {
     }
 
     public static int digitCount(int numero) {
-        int total = numero;
-        int repet = 0;
-        int digit = 1;
+        int total = 0;
 
-        while (total > 9) {
-            total = total / 10;
-            repet++;
-        }
-        total = 0;
-        while (repet > 0) {
-            digit = digit * 10;
-            repet--;
-        }
         while (numero > 0) {
-            while (numero >= digit) {
-                numero = numero - digit;
-                total++;
-            }
-            digit = digit / 10;
+            total = total + (numero % 10);
+            numero = numero / 10;
         }
         return total;
     }
