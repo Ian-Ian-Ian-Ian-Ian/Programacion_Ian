@@ -15,8 +15,9 @@ public class WifiHotel {
             }
         }
 
-        for (int i = 0; i < array.length - 1; i++){
-            System.out.println(array[i]);
+        for (int i = 0; i < array.length; i++){
+            System.out.print(array[i]);
+            System.out.print(" ");
         }
     }
 

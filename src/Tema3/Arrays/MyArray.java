@@ -59,6 +59,7 @@ public class MyArray {
         for (int num = 0; num < array.length; num++) {
             if (array[num] == numero) {
                 check = true;
+                return check;
             }
         }
         return check;
@@ -186,7 +187,7 @@ public class MyArray {
                         numero = in.nextInt();
                     }
 
-                    resulint = sumArray(array[resulint], array[numero]);
+                    //resulint[] = sumArray(array[], array[]);
                     System.out.println("El resultado de la suma es: " + resulint);
                     break;
                 case 7:

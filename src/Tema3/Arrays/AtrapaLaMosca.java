@@ -7,7 +7,7 @@ public class AtrapaLaMosca {
 
     public static int[] mosca(int[] array){
         Random random = new Random();
-        for (int i = 0; i < array.length-1; i++) {
+        for (int i = 0; i < array.length; i++) {
             array[i]=0;
         }
         int mosca = random.nextInt(14);
