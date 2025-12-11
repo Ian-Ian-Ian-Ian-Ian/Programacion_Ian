@@ -65,16 +65,31 @@ public class MyArray {
         return check;
     }
 
-    public static int sumArray(int num1, int num2) {
-        return num1 + num2;
+    public static int[] sumArray(int[] array, int[] array2) {
+        int[] resultarray;
+        resultarray = new int[array.length];
+        for (int i = 0; i < resultarray.length; i++) {
+            resultarray[i] = array[i] + array2[i];
+        }
+        return resultarray;
     }
 
-    public static int restArray(int num1, int num2) {
-        return num1 - num2;
+    public static int[] restArray(int[] array, int[] array2) {
+        int[] resultarray;
+        resultarray = new int[array.length];
+        for (int i = 0; i < resultarray.length; i++) {
+            resultarray[i] = array[i] - array2[i];
+        }
+        return resultarray;
     }
 
-    public static int prodArray(int num1, int num2) {
-        return num1 * num2;
+    public static int[] prodArray(int[] array, int[] array2) {
+        int[] resultarray;
+        resultarray = new int[array.length];
+        for (int i = 0; i < resultarray.length; i++) {
+            resultarray[i] = array[i] * array2[i];
+        }
+        return resultarray;
     }
 
     public static int[] orderInverter(int[] array) {
@@ -122,6 +137,15 @@ public class MyArray {
         String seguir = "si";
 
         int[] array;
+        int[] array2;
+        int[] resultarray;
+
+        System.out.println("¿Quieres hacer 1 o 2 arrays?");
+        opcion = in.nextInt();
+        while (opcion < 1 || opcion > 2) {
+            System.out.println("1 o 2");
+            opcion = in.nextInt();
+        }
         System.out.println("Dime cuantos números quieres que tenga la array (Al menos 3)");
         numero = in.nextInt();
         while (numero < 3) {
@@ -129,11 +153,21 @@ public class MyArray {
             numero = in.nextInt();
         }
         array = new int[numero];
-        System.out.println("Introduce los números de la array");
+        array2 = new int[numero];
+
+        System.out.println("Introduce los números de la primera array");
 
         for (int cont = 0; cont < numero; cont++) {
             resulint = in.nextInt();
             array[cont] = resulint;
+        }
+
+        System.out.println("Introduce los números de la segunda array");
+        if (opcion == 2) {
+            for (int cont = 0; cont < numero; cont++) {
+                resulint = in.nextInt();
+                array2[cont] = resulint;
+            }
         }
 
         while (seguir == "si") {
@@ -172,63 +206,22 @@ public class MyArray {
                     }
                     break;
                 case 6:
-                    System.out.println("Selecciona el primer número (comenzando desde el 0)");
-                    printArray(array);
-                    resulint = in.nextInt();
-                    while (resulint < 0 || resulint >= array.length) {
-                        System.out.println("Por favor, introduce una opción correcta");
-                        resulint = in.nextInt();
+                    resultarray = sumArray(array, array2);
+                    for (int i = 0; i < resultarray.length; i++) {
+                        System.out.println(array[i] + " + " + array2[i] + " = " + resultarray[i]);
                     }
-
-                    System.out.println("Ahora selecciona el segundo número (comenzando desde el 0)");
-                    numero = in.nextInt();
-                    while (numero < 0 || numero >= array.length) {
-                        System.out.println("Por favor, introduce una opción correcta");
-                        numero = in.nextInt();
-                    }
-
-                    //resulint[] = sumArray(array[], array[]);
-                    System.out.println("El resultado de la suma es: " + resulint);
                     break;
                 case 7:
-                    System.out.println("Selecciona el primer número (comenzando desde el 0)");
-                    printArray(array);
-                    resulint = in.nextInt();
-
-                    while (resulint < 0 || resulint >= array.length) {
-                        System.out.println("Por favor, introduce una opción correcta");
-                        resulint = in.nextInt();
+                    resultarray = restArray(array, array2);
+                    for (int i = 0; i < resultarray.length; i++) {
+                        System.out.println(array[i] + " - " + array2[i] + " = " + resultarray[i]);
                     }
-
-                    System.out.println("Ahora selecciona el segundo número (comenzando desde el 0)");
-                    numero = in.nextInt();
-                    while (numero < 0 || numero >= array.length) {
-                        System.out.println("Por favor, introduce una opción correcta");
-                        numero = in.nextInt();
-                    }
-
-                    resulint = restArray(array[resulint], array[numero]);
-                    System.out.println("El resultado de la resta es: " + resulint);
                     break;
                 case 8:
-                    System.out.println("Selecciona el primer número (comenzando desde el 0)");
-                    printArray(array);
-                    resulint = in.nextInt();
-
-                    while (resulint < 0 || resulint >= array.length) {
-                        System.out.println("Por favor, introduce una opción correcta");
-                        resulint = in.nextInt();
+                    resultarray = prodArray(array, array2);
+                    for (int i = 0; i < resultarray.length; i++) {
+                        System.out.println(array[i] + " * " + array2[i] + " = " + resultarray[i]);
                     }
-
-                    System.out.println("Ahora selecciona el segundo número (comenzando desde el 0)");
-                    numero = in.nextInt();
-                    while (numero < 0 || numero >= array.length) {
-                        System.out.println("Por favor, introduce una opción correcta");
-                        numero = in.nextInt();
-                    }
-
-                    resulint = prodArray(array[resulint], array[numero]);
-                    System.out.println("El resultado de la multiplicación es: " + resulint);
                     break;
                 case 9:
                     array = orderInverter(array);
