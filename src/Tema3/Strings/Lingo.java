@@ -47,15 +47,16 @@ public class Lingo {
         System.out.println("Bienvenido a Lingo");
         System.out.println("Por favor, introduzca una palabra de 5 letras");
         for (int i = 0; i < intentos; i++) {
+            System.out.print("Try:  ");
             respuesta = in.next();
             while (respuesta.length() != 5) {
                 System.out.println("He dicho que sea de 5 letras");
+                System.out.print("Try:  ");
                 respuesta = in.next();
             }
             visible = wordCheck(respuesta, pal, vis);
 
-            System.out.println(respuesta);
-            System.out.println(visible);
+            System.out.println("Hint: " + visible);
 
             ganar = winCheck(pal, vis);
 
