@@ -5,7 +5,18 @@ import java.util.Scanner;
 public class HangmanGame {
 
     public static String letterCheck(String visible, String palabra, char letra) {
+        char vis[] = visible.toCharArray();
+        char pal[] = palabra.toCharArray();
 
+        for (int i = 0; i < palabra.length(); i++) {
+            if (letra == pal[i]) {
+                vis[i] = letra;
+            }
+        }
+        visible = "";
+        for (int j = 0; j < palabra.length(); j++) {
+            visible = visible + vis[j];
+        }
         return visible;
     }
 
@@ -41,6 +52,13 @@ public class HangmanGame {
         }
     }
 
+    public static boolean winCheck(String visible, String palabra) {
+        if (visible.equalsIgnoreCase(palabra)) {
+            return true;
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
 
         Scanner in = new Scanner(System.in);
@@ -51,31 +69,48 @@ public class HangmanGame {
         char letra = 0;
         boolean ganar = false;
 
-        System.out.println("Bienvenido al juego del Ahorcado, por favor, escriba la palabra secreta");
+        System.out.println("Bienvenido al juego del Ahorcado, por favor, escriba la palabra secreta (No más de 10 carácteres de largo)");
         String palabra = in.next();
+        while (palabra.length() > 10) {
+            System.out.println("No más de 10 carácteres de largo");
+            palabra = in.next();
+        }
+        palabra = palabra.toLowerCase();
 
         for (int i = 0; i < palabra.length(); i++) {
             visible = visible + "_";
+        }
+
+        for (int i = 0; i < 50; i++) {
+            System.out.println();
         }
 
         System.out.println("Ahora toca que el otro jugador acierte la palabra, por favor, introduzca la letra");
         System.out.println("(Si escribe más de una letra solo se seleccionará la primera letra)");
 
         while (errores < 6) {
-            letra = in.next().charAt(0);
-            while (letra >= 0) {
-                System.out.println("Por favor, introduzca una letra, no un número");
-                letra = in.next().charAt(0);
-            }
+            letra = in.next().toLowerCase().charAt(0);
 
             visible2 = visible;
             visible = letterCheck(visible, palabra, letra);
 
-            if (visible2 == visible) {
+            if (visible2.equals(visible)) {
+                System.out.println("Letra incorrecta");
                 errores++;
             }
 
             hangedman(errores);
+            System.out.println("\n" + visible);
+            ganar = winCheck(palabra, visible);
+
+            if (ganar) {
+                errores = 6;
+            }
+        }
+        if (ganar) {
+            System.out.println("¡Has Acertado!");
+        } else if (!ganar) {
+            System.out.println("Has perdido... La palabra era: " + palabra);
         }
     }
 }

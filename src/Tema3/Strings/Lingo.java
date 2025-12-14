@@ -66,7 +66,7 @@ public class Lingo {
         if (ganar) {
             System.out.println("¡Has Ganado!");
         } else {
-            System.out.println("Has Perdido...");
+            System.out.println("Has Perdido... La palabra era: " + palabra);
         }
     }
 }
