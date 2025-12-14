@@ -40,10 +40,37 @@ public class MyString {
     }
 
     public static String biggestWord(String cadena) {
+        cadena = cadena + " ";
+        char[] cad = cadena.toCharArray();
+        int letras = 0;
+        String palabralarga = "";
+        for (int i = 0; i < cadena.length(); i++) {
 
-        return cadena;
+            if (cad[i] == ' ') {
+                if (letras > palabralarga.length()) {
+                    palabralarga = "";
+                    for (int j = 0; letras >= j; letras--) {
+                        palabralarga = palabralarga + cad[i - letras];
+                    }
+                }
+                letras = -1;
+            }
+            letras++;
+        }
+        return palabralarga;
     }
 
+    public static int wordSearcher(String cadena, String cadena2) {
+        int repet = 0;
+        cadena = cadena.replace(cadena2,".");
+        char[] cad = cadena.toCharArray();
+        for (int i = 0; i < cadena.length(); i++) {
+            if (cad[i] == '.') {
+                repet++;
+            }
+        }
+        return repet;
+    }
 
     public static int wordCount(String cadena) {
         char[] cad = cadena.toCharArray();
@@ -141,6 +168,7 @@ public class MyString {
         }
 
         String cadena = "";
+        String cadena2 = "";
 
         if (opcion == 6) {
             boolean ok = false;
@@ -165,15 +193,22 @@ public class MyString {
                     }
                 }
             }
+        } else if (opcion == 4) {
+            in.nextLine();
+            System.out.println("Introduce la primera cadena");
+            cadena = in.nextLine();
+            System.out.println("Introduce la segunda cadena, que quieres buscar en la primera");
+            cadena2 = in.nextLine();
         } else {
             in.nextLine();
+            System.out.println("Introduzca la cadena");
             cadena = in.nextLine();
         }
 
         switch (opcion) {
             case 1:
-                String cadena2 = stringInverter(cadena);
-                System.out.println(cadena2);
+                String cadenainv = stringInverter(cadena);
+                System.out.println(cadenainv);
                 break;
             case 2:
                 int totalvocales = totalVocal(cadena);
@@ -184,7 +219,8 @@ public class MyString {
                 System.out.println("La palabra más larga es: " + palabralarga);
                 break;
             case 4:
-
+                int repeticiones = wordSearcher(cadena, cadena2);
+                System.out.println("La cadena: " + cadena2 + " aparece un total de " + repeticiones + " veces");
                 break;
             case 5:
                 int totalpalabras = wordCount(cadena);
