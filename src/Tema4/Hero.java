@@ -42,7 +42,7 @@ public class Hero {
     public void drinkPotion() {
         health = health + 10;
         if (health > MAX_HEALTH) {
-            System.out.println("")
+            System.out.println("");
         }
     }
 }
