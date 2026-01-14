@@ -77,13 +77,13 @@ public class Persona {
         }
     }
 
-    public void ageDifference(int edad){
+    public void ageDifference(Persona comparativa){
         int difference = 0;
-        if (this.edad > edad) {
-            difference = this.edad - edad;
+        if (edad > comparativa.edad) {
+            difference = edad - comparativa.edad;
             System.out.println("La diferencia de edad es de " + difference + " años");
-        } else if (edad > this.edad) {
-            difference = edad - this.edad;
+        } else if (comparativa.edad > edad) {
+            difference = comparativa.edad - edad;
             System.out.println("La diferencia de edad es de " + difference + " años");
         } else {
             System.out.println("Tienen la misma edad");

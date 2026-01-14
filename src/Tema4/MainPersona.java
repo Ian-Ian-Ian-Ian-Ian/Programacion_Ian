@@ -2,7 +2,7 @@ package Tema4;
 
 public class MainPersona {
     public static void main(String[] args) {
-        Persona ian = new Persona("54517979K", "Ian", "Lero Lero", 23);
+        Persona ian = new Persona("59009990K", "Ian", "Lero Lero", 23);
         String IAN_DNI = ian.getDni();
 
         ian.isAdult();
@@ -19,5 +19,7 @@ public class MainPersona {
 
         System.out.println(carlos);
         System.out.println(ian);
+
+        ian.ageDifference(carlos);
     }
 }
