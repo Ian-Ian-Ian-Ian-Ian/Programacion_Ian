@@ -36,14 +36,14 @@ public class Hero {
         defense = DEFAULT_DEFENSE;
     }
 
-    public Hero (String name, int health, int maxHealth, int attack, int defense) {
+    public Hero (String name) {
         this.name = name;
         level = DEFAULT_LEVEL;
-        this.health = health;
-        this.maxHealth = maxHealth;
+        health = DEFAULT_HEALTH;
+        maxHealth = DEFAULT_MAX_HEALTH;
         experience = DEFAULT_EXPERIENCE;
-        this.attack = attack;
-        this.defense = defense;
+        attack = DEFAULT_ATTACK;
+        defense = DEFAULT_DEFENSE;
     }
 
     //Getters
@@ -127,6 +127,13 @@ public class Hero {
         if (experience >= REQUIRED_EXPERIENCE) {
             experience = experience - REQUIRED_EXPERIENCE;
             level++;
+
+            System.out.println("¡Has subido de nivel!");
+            System.out.println("---------------------");
+            System.out.println("Nuevo Nivel: " + level);
+            System.out.println("Salud Máx:  " + maxHealth + " +5" );
+            System.out.println("Ataque:     " + attack + " +1" );
+            System.out.println("Defensa:    " + defense + " +1" );
 
             health = health + 5;
             maxHealth = maxHealth + 5;

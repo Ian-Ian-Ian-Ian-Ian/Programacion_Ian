@@ -4,18 +4,11 @@ import java.util.Scanner;
 public class Pruebiñas {
     public static void main(String[] args){
 
-        char hola = '0';
-        int total = 10 + hola;
-        /*
-        String dni = "54517979K";
-        int total = 0;
-        char[] DNI_NUMBER = dni.substring(0,8).toCharArray();
-        for (int i = 0; i < 1; i++) {
-            System.out.println(DNI_NUMBER[i]);
-            total = total + DNI_NUMBER[i];
-            total = total * 10;
+        Random random = new Random();
+
+        for (int i = 0; i < 10; i++) {
+            int hola = random.nextInt(10) + 1;
+            System.out.println(hola);
         }
-        */
-        System.out.println(total);
     }
 }
