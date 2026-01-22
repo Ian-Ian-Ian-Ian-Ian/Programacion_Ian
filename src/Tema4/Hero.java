@@ -109,6 +109,7 @@ public class Hero {
     //Metodos de batalla
     public void drinkPotion() {
         health = health + POTION_HEAL;
+        System.out.println("La poción sana " + POTION_HEAL + " puntos de salud a " + name);
         if (health > maxHealth) {
             System.out.println("Se ha alcanzado la salud máxima");
             health = maxHealth;
@@ -117,6 +118,7 @@ public class Hero {
 
     public void rest() {
         health = health + REST_HEAL;
+        System.out.println("Descansas y sanas " + REST_HEAL + " puntos de salud a " + name);
         if (health > maxHealth) {
             System.out.println("Se ha alcanzado la salud máxima");
             health = maxHealth;
@@ -131,9 +133,9 @@ public class Hero {
             System.out.println("¡Has subido de nivel!");
             System.out.println("---------------------");
             System.out.println("Nuevo Nivel: " + level);
-            System.out.println("Salud Máx:  " + maxHealth + " +5" );
-            System.out.println("Ataque:     " + attack + " +1" );
-            System.out.println("Defensa:    " + defense + " +1" );
+            System.out.println("Salud Máx:  " + maxHealth + " +5");
+            System.out.println("Ataque:     " + attack + "   +1");
+            System.out.println("Defensa:    " + defense + "   +1\n");
 
             health = health + 5;
             maxHealth = maxHealth + 5;
@@ -145,6 +147,8 @@ public class Hero {
     public void attack(Hero rival) {
         Random random = new Random();
         int dano = (random.nextInt(9) + 1) + (attack - rival.defense);
+        if (dano < 1) { dano = 1; }
+        System.out.print("Han realizado " + dano + " puntos de daño a ");
         rival.health = rival.health - dano;
 
         experience = experience + EXPERIENCE_RECIEVED;
