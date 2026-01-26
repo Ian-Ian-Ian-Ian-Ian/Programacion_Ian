@@ -8,6 +8,14 @@ public class Persona {
     private final static int ADULT_AGE = 18;
     private final static int RETIRED_AGE = 65;
 
+    //Constructores
+    public Persona() {
+        dni = "11111111A";
+        nombre = "Nombre";
+        apellido = "Apellido";
+        edad = 20;
+    }
+
     public Persona(String dni, String nombre, String apellido, int edad) {
         this.dni = dni.toUpperCase();
         this.nombre = nombre;
@@ -15,6 +23,7 @@ public class Persona {
         this.edad = edad;
     }
 
+    //Getters
     public String getDni() {
         return dni;
     }
@@ -31,6 +40,7 @@ public class Persona {
         return edad;
     }
 
+    //Setters
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -61,25 +71,30 @@ public class Persona {
         System.out.println("DNI:        " + dni);
     }
 
-    public void isAdult() {
+    public boolean isAdult() {
         if (edad >= ADULT_AGE) {
             System.out.println(nombre + " es mayor de edad");
+            return true;
         } else {
             System.out.println(nombre + " NO es mayor de edad");
+            return false;
         }
+
     }
 
-    public void isRetired() {
+    public boolean isRetired() {
         if (edad > RETIRED_AGE) {
             System.out.println(nombre + " esta retirado/a");
+            return true;
         } else {
             System.out.println(nombre + " NO esta retirado/a");
+            return false;
         }
     }
 
     public void ageDifference(Persona comparativa){
         int difference = 0;
-        if (edad > comparativa.edad) {
+        if (this.edad > comparativa.edad) {
             difference = edad - comparativa.edad;
             System.out.println("La diferencia de edad es de " + difference + " años");
         } else if (comparativa.edad > edad) {
@@ -90,7 +105,7 @@ public class Persona {
         }
     }
 
-    public static void checkDNI(String dni) {
+    public static boolean checkDNI(String dni) {
         char[] DNI_NUMBER = dni.substring(0,8).toCharArray();
         char[] DNI_LETTER = dni.substring(8).toCharArray();
         String letras = "TRWAGMYFPDXBNJZSQVHLCKE";
@@ -113,8 +128,10 @@ public class Persona {
 
         if (DNI_LETTER[0] == LETTER_TABLE[resto]) {
             System.out.println("El DNI es correcto");
+            return true;
         } else {
             System.out.println("El DNI NO es correcto");
+            return false;
         }
     }
 }

@@ -59,7 +59,7 @@ public class Reloj {
 
     // Modificación de toString
     public String toString() {
-        Boolean ANTES_MEDIODIA = true;
+        boolean ANTES_MEDIODIA = true;
         if (hora == 24) {
             hora = 0;
         } else if (!RELOJ_24_HORAS && hora > 12) {

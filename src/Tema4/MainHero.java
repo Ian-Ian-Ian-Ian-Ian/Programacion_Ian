@@ -181,17 +181,17 @@ public class MainHero {
                     break;
                 }
 
-                if (enemigo1.getHealth() > 0) {
+                if (enemigo1.getHealth() > 0 && jugador.getHealth() > 0) {
                     enemigo1.attack(jugador);
                     System.out.println(jugador.getName() + "\n");
                 }
 
-                if (enemigo2.getHealth() > 0) {
+                if (enemigo2.getHealth() > 0 && jugador.getHealth() > 0) {
                     enemigo2.attack(jugador);
                     System.out.println(jugador.getName() + "\n");
                 }
 
-                if (enemigo3.getHealth() > 0) {
+                if (enemigo3.getHealth() > 0 && jugador.getHealth() > 0) {
                     enemigo3.attack(jugador);
                     System.out.println(jugador.getName() + "\n");
                 }
