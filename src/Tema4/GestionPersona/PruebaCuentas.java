@@ -10,9 +10,9 @@ public class PruebaCuentas {
                 "1. Crear instancia de tipo \"Persona\"\n" +
                 "2. Crear instancia de tipo \"Cuenta\" y unirlo a una persona\n" +
                 "3. Mostrar datos de una persona\n" +
-                "4. Recibir nómina mensual de una persona" +
-                "5. Recibir un pago" +
-                "6. Realizar transferencias entre cuentas" +
+                "4. Recibir nómina mensual de una persona\n" +
+                "5. Recibir un pago\n" +
+                "6. Realizar transferencias entre cuentas\n" +
                 "7. Imprimir personas morosas");
     }
 

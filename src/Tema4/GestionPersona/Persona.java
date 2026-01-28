@@ -5,8 +5,8 @@ public class Persona {
     private String[] CUENTAS_BANCARIAS = new String[3];
 
     //Constructores
-    public Persona() {
-
+    public Persona(String DNI) {
+        this.DNI = DNI;
     }
 
     //Getters
@@ -28,6 +28,19 @@ public class Persona {
     }
 
     //Métodos
+    public void addCuenta(String cuenta) {
+        if (CUENTAS_BANCARIAS[CUENTAS_BANCARIAS.length - 1].isEmpty()) {
+            for (int i = 0; i < CUENTAS_BANCARIAS.length; i++) {
+                if (CUENTAS_BANCARIAS[i].isEmpty()) {
+                    CUENTAS_BANCARIAS[i] = cuenta;
+                    i = CUENTAS_BANCARIAS.length;
+                }
+            }
+        } else {
+            System.out.println("Ya tiene el máximo de cuentas posibles");
+        }
+    }
+
     public boolean isMoroso(int saldo) {
         boolean ES_MOROSO = false;
         if (saldo < 0) {
