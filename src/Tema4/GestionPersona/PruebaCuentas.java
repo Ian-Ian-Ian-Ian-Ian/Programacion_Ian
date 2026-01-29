@@ -26,9 +26,18 @@ public class PruebaCuentas {
             opcion = in.nextInt();
         }
 
+        Persona personas[] = new Persona[10];
+
         switch (opcion) {
             case 1:
+                for (int i = 0; i < personas.length; i++) {
+                    if (personas[i].equals("")) {
 
+                    } else {
+
+                    }
+
+                }
                 break;
             case 2:
 
