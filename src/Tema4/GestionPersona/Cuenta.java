@@ -3,13 +3,16 @@ package Tema4.GestionPersona;
 public class Cuenta {
     private int NUMERO_CUENTA;
     private double SALDO;
-    private int DEFAULT_NUMERO_CUENTA = 1;
 
     //Constructores
     public Cuenta() {
-        NUMERO_CUENTA = DEFAULT_NUMERO_CUENTA;
+        NUMERO_CUENTA = 1;
         SALDO = 0.00;
-        DEFAULT_NUMERO_CUENTA++;
+    }
+
+    public Cuenta(int NUMERO_CUENTA, double SALDO) {
+        this.NUMERO_CUENTA = NUMERO_CUENTA;
+        this.SALDO = SALDO;
     }
 
     //Getters

@@ -2,9 +2,13 @@ package Tema4.GestionPersona;
 
 public class Persona {
     private String DNI;
-    private String[] CUENTAS_BANCARIAS = new String[3];
+    private Cuenta[] CUENTAS_BANCARIAS = new Cuenta[3];
 
     //Constructores
+    public Persona() {
+        DNI = "";
+    }
+
     public Persona(String DNI) {
         this.DNI = DNI;
     }
@@ -14,7 +18,7 @@ public class Persona {
         return DNI;
     }
 
-    public String[] getCUENTAS_BANCARIAS() {
+    public Cuenta[] getCUENTAS_BANCARIAS() {
         return CUENTAS_BANCARIAS;
     }
 
@@ -23,15 +27,15 @@ public class Persona {
         this.DNI = DNI;
     }
 
-    public void setCUENTAS_BANCARIAS(String[] CUENTAS_BANCARIAS) {
+    public void setCUENTAS_BANCARIAS(Cuenta[] CUENTAS_BANCARIAS) {
         this.CUENTAS_BANCARIAS = CUENTAS_BANCARIAS;
     }
 
     //Métodos
-    public void addCuenta(String cuenta) {
-        if (CUENTAS_BANCARIAS[CUENTAS_BANCARIAS.length - 1].isEmpty()) {
+    public void addCuenta(Cuenta cuenta) {
+        if (CUENTAS_BANCARIAS[CUENTAS_BANCARIAS.length - 1] == null) {
             for (int i = 0; i < CUENTAS_BANCARIAS.length; i++) {
-                if (CUENTAS_BANCARIAS[i].isEmpty()) {
+                if (CUENTAS_BANCARIAS[i] == null) {
                     CUENTAS_BANCARIAS[i] = cuenta;
                     i = CUENTAS_BANCARIAS.length;
                 }
@@ -41,11 +45,11 @@ public class Persona {
         }
     }
 
-    public boolean isMoroso(int saldo) {
+    public boolean isMoroso(double saldo) {
         boolean ES_MOROSO = false;
-        if (saldo < 0) {
-            ES_MOROSO = true;
-        }
+            if ( saldo < 0 ){
+                ES_MOROSO = true;
+            }
         return ES_MOROSO;
     }
 }
