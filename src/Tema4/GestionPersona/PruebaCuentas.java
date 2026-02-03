@@ -43,6 +43,7 @@ public class PruebaCuentas {
             opcion = in.nextInt();
         }
 
+        in.nextLine();
 
         switch (opcion) {
             case 1:
@@ -51,13 +52,13 @@ public class PruebaCuentas {
                     if (personas[i] == null) {
                         cantidad = i;
                         System.out.println("Dime el DNI de la persona que quieres agregar");
-                        nombre_persona = in.next();
+                        nombre_persona = in.nextLine();
                         persona.setDNI(nombre_persona);
 
                         for (int j = 0; j < cantidad; j++) {
                             while (personas[j].getDNI().equals(nombre_persona)) {
                                 System.out.println("No pueden haber dos personas con el mismo DNI, inserte otro DNI");
-                                nombre_persona = in.next();
+                                nombre_persona = in.nextLine();
                                 j = 0;
                             }
                         }
@@ -65,7 +66,7 @@ public class PruebaCuentas {
                         personas[i] = persona;
                         i = personas.length;
 
-                    } else {
+                    } else if (personas[personas.length - 1] != null) {
                         System.out.println("Lo sentimos, se ha alcanzado el número máximo de personas");
                     }
 
@@ -76,9 +77,9 @@ public class PruebaCuentas {
                     System.out.println("No hay personas registradas todavía\n");
                 } else {
                     System.out.println("Dime el DNI de la persona a la que quieres añadir una nueva cuenta");
-                    nombre_persona = in.next();
+                    nombre_persona = in.nextLine();
 
-                    for (int i = 0; i < personas.length; i++) {
+                    for (int i = 0; i < cantidad; i++) {
 
                         if (personas[i].getDNI().equals(nombre_persona)) {
 
@@ -105,7 +106,7 @@ public class PruebaCuentas {
                 } else {
                     System.out.println("Dime el DNI de la persona que quieres buscar");
                     nombre_persona = in.next();
-                    for (int i = 0; i < personas.length; i++) {
+                    for (int i = 0; i < cantidad; i++) {
 
                         if (personas[i].getDNI().equals(nombre_persona)) {
                             System.out.println("Aqui tienes las cuentas ");
@@ -131,7 +132,7 @@ public class PruebaCuentas {
                     nombre_persona = in.next();
                     System.out.println("Y dime el número de cuenta");
                     num_cuenta = in.nextInt();
-                    for (int i = 0; i < personas.length; i++) {
+                    for (int i = 0; i < cantidad; i++) {
                         cuentas = personas[i].getCUENTAS_BANCARIAS();
                         for (int j = 0; j < cuentas.length; j++) {
                             if (personas[i].getDNI().equals(nombre_persona) && cuentas[j].getNUMERO_CUENTA() == num_cuenta) {
@@ -155,7 +156,7 @@ public class PruebaCuentas {
                     nombre_persona = in.next();
                     System.out.println("Y dime el número de cuenta");
                     num_cuenta = in.nextInt();
-                    for (int i = 0; i < personas.length; i++) {
+                    for (int i = 0; i < cantidad; i++) {
                         cuentas = personas[i].getCUENTAS_BANCARIAS();
                         for (int j = 0; j < cuentas.length; j++) {
                             if (personas[i].getDNI().equals(nombre_persona) && cuentas[j].getNUMERO_CUENTA() == num_cuenta) {
@@ -179,7 +180,7 @@ public class PruebaCuentas {
                     nombre_persona = in.next();
                     System.out.println("Y dime el número de la cuenta que tranfiere dinero");
                     num_cuenta = in.nextInt();
-                    for (int i = 0; i < personas.length; i++) {
+                    for (int i = 0; i < cantidad; i++) {
                         cuentas = personas[i].getCUENTAS_BANCARIAS();
                         for (int j = 0; j < cuentas.length; j++) {
                             if (personas[i].getDNI().equals(nombre_persona) && cuentas[j].getNUMERO_CUENTA() == num_cuenta) {
