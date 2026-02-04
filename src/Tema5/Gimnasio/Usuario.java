@@ -1,4 +1,4 @@
-package Tema5;
+package Tema5.Gimnasio;
 
 public class Usuario {
     private String nombre;
@@ -31,5 +31,13 @@ public class Usuario {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    //toString Modificado
+    public String toString() {
+        return  "\nDatos del usuario\n" +
+                "-----------------\n" +
+                "Nombre: " + nombre +
+                "\nEdad:   " + edad + "\n";
     }
 }
