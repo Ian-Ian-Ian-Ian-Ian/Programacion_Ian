@@ -52,13 +52,14 @@ public class ColaBanco {
                     in.nextLine();
 
                     Cola.add(new Usuario(dni, nombre, edad));
+                    System.out.println("Se ha añadido un usuario a la cola. Cola: " + Cola.size());
                     break;
                 case 2:
                     if (Cola.isEmpty()) {
                         System.out.println("Todavía no ha llegado ningún usuario");
                     } else {
                         Cola.remove(0);
-                        System.out.println("La persona ha sido atendida");
+                        System.out.println("La persona ha sido atendida. Cola: " + Cola.size());
                     }
                     break;
                 case 3:
@@ -80,6 +81,7 @@ public class ColaBanco {
                             }
                         }
                         Cola.remove(opcion);
+                        System.out.println("La persona se ha cansado de esperar. Cola: " + Cola.size());
                     }
                     break;
                 case 4:
