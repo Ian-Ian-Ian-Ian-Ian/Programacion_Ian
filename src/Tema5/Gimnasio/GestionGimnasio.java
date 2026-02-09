@@ -37,12 +37,12 @@ public class GestionGimnasio {
                 System.out.println("Seleccione una opcion válida");
                 opcion = in.nextInt();
             }
+            in.nextLine();
 
             switch (opcion) {
                 case 1:
                     System.out.print("Dime el DNI del usuario que quieras añadir: ");
                     DNI = in.nextLine().trim().toUpperCase();
-                    in.nextLine();
 
                     if (Miembros.containsKey(DNI)) {
                         System.out.println("El DNI ya esta registrado en el gimnasio");
@@ -64,7 +64,6 @@ public class GestionGimnasio {
                     } else {
                         System.out.print("Dime el DNI del usuario que quieres dar de baja: ");
                         DNI = in.nextLine().trim().toUpperCase();
-                        in.nextLine();
 
                         if (Miembros.containsKey(DNI)) {
                             Miembros.remove(DNI);
@@ -80,7 +79,6 @@ public class GestionGimnasio {
                     } else {
                         System.out.print("Dime el DNI del usuario del que quieres mostrar los datos: ");
                         DNI = in.nextLine().trim().toUpperCase();
-                        in.nextLine();
 
                         if (Miembros.containsKey(DNI)) {
                             System.out.println(Miembros.get(DNI));
@@ -95,7 +93,6 @@ public class GestionGimnasio {
                     } else  {
                         System.out.print("Dime el DNI del usuario del que quieres modificar los datos: ");
                         DNI = in.nextLine().trim().toUpperCase();
-                        in.nextLine();
 
                         if (Miembros.containsKey(DNI)) {
                             System.out.print("Dime el nombre nuevo: ");

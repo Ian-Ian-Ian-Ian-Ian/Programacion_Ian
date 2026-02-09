@@ -26,7 +26,7 @@ public class ColaBanco {
 
         boolean esperando = true;
 
-        List <Usuario> Cola = new LinkedList<>();
+        List <Usuario> cola = new LinkedList<>();
 
 
         while (esperando) {
@@ -51,27 +51,27 @@ public class ColaBanco {
                     edad = in.nextInt();
                     in.nextLine();
 
-                    Cola.add(new Usuario(dni, nombre, edad));
-                    System.out.println("Se ha añadido un usuario a la cola. Cola: " + Cola.size());
+                    cola.add(new Usuario(dni, nombre, edad));
+                    System.out.println("Se ha añadido un usuario a la cola. Cola: " + cola.size());
                     break;
                 case 2:
-                    if (Cola.isEmpty()) {
+                    if (cola.isEmpty()) {
                         System.out.println("Todavía no ha llegado ningún usuario");
                     } else {
-                        Cola.remove(0);
-                        System.out.println("La persona ha sido atendida. Cola: " + Cola.size());
+                        cola.remove(0);
+                        System.out.println("La persona ha sido atendida. Cola: " + cola.size());
                     }
                     break;
                 case 3:
-                    if (Cola.isEmpty()) {
+                    if (cola.isEmpty()) {
                         System.out.println("Todavía no ha llegado ningún usuario");
-                    } else if (Cola.size() == 1) {
+                    } else if (cola.size() == 1) {
                         System.out.println("La única persona en la cola está siendo atendida");
                     } else {
-                        System.out.println("Hay un total de " + Cola.size() + " personas en la cola");
+                        System.out.println("Hay un total de " + cola.size() + " personas en la cola");
                         System.out.print("Seleciona la persona que ha abandonado la fila: ");
                         opcion = in.nextInt() - 1;
-                        while (opcion < 1 || opcion > Cola.size()) {
+                        while (opcion < 1 || opcion > cola.size()) {
                             if (opcion == 0) {
                                 System.out.print("\nEsa persona esta siendo atendida, selecciona otra: ");
                                 opcion = in.nextInt() - 1;
@@ -80,8 +80,8 @@ public class ColaBanco {
                                 opcion = in.nextInt() - 1;
                             }
                         }
-                        Cola.remove(opcion);
-                        System.out.println("La persona se ha cansado de esperar. Cola: " + Cola.size());
+                        cola.remove(opcion);
+                        System.out.println("La persona se ha cansado de esperar. Cola: " + cola.size());
                     }
                     break;
                 case 4:
