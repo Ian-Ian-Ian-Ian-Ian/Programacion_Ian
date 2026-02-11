@@ -8,17 +8,19 @@ public class Ejercicio3 {
         Scanner in = new Scanner(System.in);
 
         double[] array = new double[5];
+        int num = 0;
 
         System.out.println("Introduce 5 números");
         for (int i = 0; i < array.length;) {
             try {
-                array[i] = in.nextInt();
+                num = in.nextInt();
+                array[i] = num;
                 System.out.println("Se ha añadido el número a la lista");
                 i++;
             } catch (InputMismatchException ex){
                 System.err.println("Valor introducido incorrecto, no se ha añadido");
-                in.nextInt();
             }
+            num = 0;
         }
 
         System.out.println("Lista de números final\n--------------");
