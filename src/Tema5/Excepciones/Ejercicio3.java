@@ -19,6 +19,7 @@ public class Ejercicio3 {
                 i++;
             } catch (InputMismatchException ex){
                 System.err.println("Valor introducido incorrecto, no se ha añadido");
+                in.next();
             }
             num = 0;
         }
