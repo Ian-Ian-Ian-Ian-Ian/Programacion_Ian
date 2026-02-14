@@ -12,6 +12,11 @@ public class Ejercicio5 {
         System.out.println("3. Salir");
     }
 
+    /*Nota a futuro
+    Por alguna extraña razón, solo Dios y el que ha creado el programa lo sabrá,
+    si pones el print que salga como err, el mensaje de error sale tarde,
+    mientras que si lo pones con out sale bien.
+     */
     public static void imprimePositivo(int p) {
         if (p < 0) {
             System.err.println("Se ha introducido un valor negativo, no se printeará el número");
