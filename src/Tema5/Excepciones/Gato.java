@@ -49,11 +49,11 @@ public class Gato {
     Métodos - No he puesto el toString cambiado ya que cono pide
     un metodo para imprimir llamado "imprimir" lo hago ahí
      */
-    private boolean nameVerifier(String nombre) {
+    public boolean nameVerifier(String nombre) {
         return nombre.length() >= 3;
     }
 
-    private boolean ageVerifier(int edad) {
+    public boolean ageVerifier(int edad) {
         return edad >= 0;
     }
 
