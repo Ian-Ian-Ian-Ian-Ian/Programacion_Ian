@@ -6,11 +6,12 @@ abstract class Figura2D {
     protected double area;
     protected double perimetro;
 
-    abstract double calcArea(double base, double altura, double area);
+    public abstract double calcArea(double base, double altura, double area);
 
-    abstract double calcPerimetro(double base, double altura, double perimetro);
+    public abstract double calcPerimetro(double base, double altura, double perimetro);
 
     public String toString() {
-        return "";
+        return "El perímetro de la figura es: " + perimetro +
+                "Y el área de la figura es: " + area;
     }
 }
