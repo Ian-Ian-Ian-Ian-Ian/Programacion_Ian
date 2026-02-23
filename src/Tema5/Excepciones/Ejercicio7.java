@@ -11,20 +11,21 @@ public class Ejercicio7 {
 
         List <Gato> lista_gatos = new ArrayList<>();
         Gato gato = new Gato();
-        String nombre;
+        String nombre = "";
         int edad;
 
         while (lista_gatos.size() < 5) {
-            System.out.print("Dime el nombre del nuevo gato: ");
-            nombre = in.nextLine();
-            System.out.print("Ahora dime la edad del gato: ");
             try {
+                System.out.print("Dime el nombre del nuevo gato: ");
+                nombre = in.nextLine();
+                System.out.print("Ahora dime la edad del gato: ");
                 edad = in.nextInt();
             } catch (InputMismatchException ex) {
                 System.err.println("Se ha introducido un valor no válido");
                 edad = -1;
                 in.next();
             }
+
             gato.nameVerifier(nombre);
             gato.ageVerifier(edad);
             if (gato.ageVerifier(edad) && gato.nameVerifier(nombre)) {

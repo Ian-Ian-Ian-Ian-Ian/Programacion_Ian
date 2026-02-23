@@ -1,4 +1,6 @@
 package Tema6.Animales;
 
-public class Gato {
+public class Gato extends Animal{
+    public void romperSofa(){
+    }
 }
