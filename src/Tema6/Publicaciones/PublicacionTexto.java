@@ -1,6 +1,6 @@
 package Tema6.Publicaciones;
 
-public class PublicacionTexto implements IPublicacion{
+public class PublicacionTexto implements IPublicacionConComentarios{
     @Override
     public void compartir() {
 
@@ -8,6 +8,11 @@ public class PublicacionTexto implements IPublicacion{
 
     @Override
     public void publicar() {
+
+    }
+
+    @Override
+    public void comentar() {
 
     }
 }

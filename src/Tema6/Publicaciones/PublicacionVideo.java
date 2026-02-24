@@ -1,6 +1,6 @@
 package Tema6.Publicaciones;
 
-public class PublicacionVideo implements IPublicacion, IAbrirPublicacion{
+public class PublicacionVideo implements IPublicacionConComentarios, IAbrirPublicacion{
     @Override
     public void compartir() {
 
@@ -14,5 +14,10 @@ public class PublicacionVideo implements IPublicacion, IAbrirPublicacion{
     @Override
     public void abrirContenido(){
 
+    }
+
+    @Override
+    public void comentar() {
+        
     }
 }
