@@ -1,4 +1,4 @@
-package Tema7.Actividades;
+package Tema7.Actividades_Ficheros;
 
 import java.io.*;
 import java.nio.file.Files;
