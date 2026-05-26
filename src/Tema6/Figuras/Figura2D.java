@@ -12,6 +12,6 @@ abstract class Figura2D {
 
     public String toString() {
         return "El perímetro de la figura es: " + perimetro +
-                "Y el área de la figura es: " + area;
+                " Y el área de la figura es: " + area;
     }
 }
